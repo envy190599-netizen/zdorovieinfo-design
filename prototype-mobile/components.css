@@ -1,0 +1,21 @@
+/* Showcase layout only. Product anatomy and states come from shared owners. */
+.component-library-page .component-library {
+  width: min(100%, 1100px);
+  padding-top: var(--zi-space-20);
+}
+.component-library-page .token-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.component-library-page .token-card span { overflow-wrap: anywhere; }
+.component-library-page .library-type-list {
+  display: grid;
+  gap: var(--zi-space-15);
+  padding: var(--zi-inset-panel);
+  background: var(--panel);
+  border-radius: var(--zi-radius-panel);
+}
+.component-library-page .library-type-list p { margin: 0; overflow-wrap: anywhere; }
+.component-library-page .library-panels { display: grid; gap: var(--zi-gap-section); }
+.component-library-page .library-panels .reading-sidebar { margin: 0; }
+.component-library-page .footer { width: 100%; margin-inline: 0; }
+@media (min-width: 768px) {
+  .component-library-page .library-panels { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); align-items: start; }
+}

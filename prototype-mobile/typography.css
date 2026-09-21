@@ -1,0 +1,82 @@
+/* ZI type system. Components consume roles or primitives; no local font scales. */
+:root {
+  --zi-font-family: "Montserrat", sans-serif;
+  --zi-weight-400: 400;
+  --zi-weight-500: 500;
+  --zi-weight-600: 600;
+  --zi-weight-700: 700;
+  --zi-tracking-normal: 0;
+  --zi-font-size-12: 12px;
+  --zi-font-size-13: 13px;
+  --zi-font-size-14: 14px;
+  --zi-font-size-15: 15px;
+  --zi-font-size-16: 16px;
+  --zi-font-size-18: 18px;
+  --zi-font-size-20: 20px;
+  --zi-font-size-21: 21px;
+  --zi-font-size-24: 24px;
+  --zi-font-size-28: 28px;
+  --zi-font-size-32: 32px;
+  --zi-font-size-40: 40px;
+  --zi-font-size-44: 44px;
+  --zi-font-size-48: 48px;
+  --zi-line-16: 16px;
+  --zi-line-18: 18px;
+  --zi-line-20: 20px;
+  --zi-line-22: 22px;
+  --zi-line-24: 24px;
+  --zi-line-25: 25px;
+  --zi-line-28: 28px;
+  --zi-line-30: 30px;
+  --zi-line-32: 32px;
+  --zi-line-34: 34px;
+  --zi-line-36: 36px;
+  --zi-line-40: 40px;
+  --zi-line-44: 44px;
+  --zi-line-48: 48px;
+  --zi-line-52: 52px;
+  --zi-leading-1: 1;
+  --zi-leading-1-1: 1.1;
+  --zi-leading-1-2: 1.2;
+  --zi-leading-1-25: 1.25;
+  --zi-leading-1-4: 1.4;
+  --zi-leading-1-5: 1.5;
+  --zi-leading-1-6: 1.6;
+  --zi-fluid-page: clamp(28px, 3vw, 40px);
+  --zi-fluid-display: clamp(32px, 3.2vw, 48px);
+  --zi-fluid-label: clamp(12px, .92vw, 14px);
+  --zi-fluid-hero-wide: clamp(36px, 5vw, 76px);
+  --zi-fluid-hero-compact: clamp(36px, 8vw, 64px);
+  --zi-fluid-lead: clamp(14px, 1.5vw, 20px);
+
+  --zi-type-material-title: var(--zi-weight-600) var(--zi-font-size-16)/var(--zi-line-20) var(--zi-font-family);
+  --zi-type-article-title: var(--zi-weight-600) var(--zi-font-size-28)/var(--zi-leading-1-1) var(--zi-font-family);
+  --zi-type-body-medium: var(--zi-weight-500) var(--zi-font-size-16)/var(--zi-line-24) var(--zi-font-family);
+  --zi-type-panel-heading: var(--zi-weight-600) var(--zi-font-size-18)/var(--zi-line-24) var(--zi-font-family);
+  --zi-type-section-heading: var(--zi-weight-600) var(--zi-font-size-20)/var(--zi-line-28) var(--zi-font-family);
+  --zi-type-action: var(--zi-weight-500) var(--zi-font-size-14)/var(--zi-line-20) var(--zi-font-family);
+  --zi-type-compact-title: var(--zi-weight-600) var(--zi-font-size-14)/var(--zi-line-20) var(--zi-font-family);
+  --zi-type-caption: var(--zi-weight-400) var(--zi-font-size-13)/var(--zi-line-18) var(--zi-font-family);
+  --zi-type-caption-medium: var(--zi-weight-500) var(--zi-font-size-13)/var(--zi-line-18) var(--zi-font-family);
+  --zi-type-small: var(--zi-weight-400) var(--zi-font-size-14)/var(--zi-line-20) var(--zi-font-family);
+  --zi-type-newsletter-heading: var(--zi-weight-600) var(--zi-font-size-24)/var(--zi-line-30) var(--zi-font-family);
+  --zi-type-symbol: var(--zi-weight-400) var(--zi-font-size-24)/var(--zi-leading-1) var(--zi-font-family);
+}
+
+@media (min-width: 1024px) {
+  :root { --zi-type-article-title: var(--zi-weight-600) var(--zi-font-size-44)/var(--zi-leading-1-1) var(--zi-font-family); }
+}
+
+/* Shared role bindings. The same component must not change type on another route. */
+body { font-family: var(--zi-font-family); font-weight: var(--zi-weight-400); letter-spacing: var(--zi-tracking-normal); }
+body.is-sidebar-navigation .footer.footer .newsletter h3 {
+  font: var(--zi-type-newsletter-heading); letter-spacing: var(--zi-tracking-normal);
+}
+body.is-sidebar-navigation .footer.footer :is(.footer-note, .footer-nav a, .newsletter p) {
+  font: var(--zi-type-small); letter-spacing: var(--zi-tracking-normal);
+}
+body.is-sidebar-navigation .footer.footer .newsletter-status { font: var(--zi-type-caption); }
+
+/* Card titles retain their compact role; page introductions share article titles. */
+@media (max-width: 767px) { :root { --zi-type-material-title: var(--zi-weight-600) var(--zi-font-size-21)/var(--zi-line-25) var(--zi-font-family); } }
+body :is(.section-intro--tv, .section-intro--feed) h1 { font: var(--zi-type-article-title); }

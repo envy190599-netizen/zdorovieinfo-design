@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>ZI 2.0 — библиотека компонентов</title>
+    <link rel="icon" href="./favicon.ico?v=20260921" sizes="16x16 32x32 48x48" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=20260921" sizes="any" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=20260921" sizes="180x180" />
+    <link rel="stylesheet" href="./styles.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./wow-context.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./editorial-layout.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./reading-panels.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./components.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./component-geometry.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./primary-button-geometry.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./responsive-layout.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./typography.css?v=20260921-component-names" />
+  </head>
+  <body class="component-library-page wow-route-context">
+    <main class="component-library">
+      <header class="library-header">
+        <div>
+          <span>ZI 2.0 · Mobile</span>
+          <h1>Библиотека компонентов</h1>
+        </div>
+        <a href="./index.html" aria-label="Открыть главную">&#8599;</a>
+      </header>
+
+      <section class="library-section" aria-labelledby="tokens-title">
+        <div class="library-section__heading"><h2 id="tokens-title">Цвета</h2></div>
+        <div class="token-grid" data-library-tokens></div>
+      </section>
+      <section class="library-section" aria-labelledby="type-title">
+        <div class="library-section__heading"><h2 id="type-title">Типографика</h2></div>
+        <div class="library-type-list" data-library-type></div>
+      </section>
+      <section class="library-section" aria-labelledby="actions-title">
+        <div class="library-section__heading"><h2 id="actions-title">Действия</h2></div>
+        <div class="component-sample component-sample--row" data-library-actions>
+          <a class="primary-button" href="./articles.html">Узнать больше</a>
+          <a class="primary-button primary-button--large" href="./articles.html">Узнать больше</a>
+        </div>
+      </section>
+      <section class="library-section" aria-labelledby="cards-title">
+        <div class="library-section__heading"><h2 id="cards-title">Карточки материалов</h2></div>
+        <div class="editorial-material-grid topic-material-grid" data-library-cards></div>
+      </section>
+      <section class="library-section library-panels" data-library-panels></section>
+      <section class="library-section" data-library-related></section>
+      <div data-site-footer data-variant="wow"></div>
+    </main>
+    <script src="./articles-data.js?v=20260921-component-names"></script>
+    <script src="./site-components.js?v=20260921-component-names"></script>
+    <script src="./shared.js?v=20260921-component-names"></script>
+    <script src="./components.js?v=20260921-component-names"></script>
+  </body>
+</html>

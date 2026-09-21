@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Здоровье Инфо — главная</title>
+    <link rel="icon" href="./favicon.ico?v=20260921" sizes="16x16 32x32 48x48" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=20260921" sizes="any" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=20260921" sizes="180x180" />
+    <script src="./device-layout.js?v=20260921-component-names"></script>
+    <link rel="stylesheet" href="./styles.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./wow.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./header-navigation.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./editorial-layout.css?v=20260921-component-names" />
+  <link rel="stylesheet" href="./fullscreen-home.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./component-geometry.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./reading-panels.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./primary-button-geometry.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./responsive-layout.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./typography.css?v=20260921-component-names" />
+  </head>
+  <body class="wow-page editorial-home fullscreen-home">
+    <main class="phone-shell home-page wow-shell" aria-label="Главная Здоровье Инфо">
+      <div data-site-header data-variant="wow" data-active="home"></div>
+
+      <section class="hero reveal" id="top" aria-label="Главные материалы">
+        <div class="hero-frame">
+          <div class="wow-hero-mask">
+            <div class="hero-slider" data-slider="hero" role="group" tabindex="0" aria-label="Свайпните, чтобы сменить материал">
+              <article class="hero-slide hero-slide--broadcast is-active" data-slide data-hero-title-first="Мое давление" data-hero-title-second="" data-hero-subtitle="Моя ответственность: прими участие в проекте" data-hero-href="https://ru.mybpapp.com/">
+                <video autoplay muted loop playsinline preload="metadata" poster="./assets/figma/hero-malysheva-hand-behind-head.webp" aria-label="Елена Малышева в передаче Жить здорово!">
+                  <source src="./assets/local/hero-live-healthy-malysheva-1080.mp4?v=20260827-2" type="video/mp4" />
+                </video>
+              </article>
+              <article class="hero-slide" data-slide data-hero-title-first="Ходьба каждый день" data-hero-title-second="" data-hero-subtitle="Выбираем верный темп" data-hero-href="./articles.html?topic=sport">
+                <img src="./assets/local/stock-walk-park.webp" alt="" />
+              </article>
+              <article class="hero-slide" data-slide data-hero-title-first="Месяц без сахара" data-hero-title-second="" data-hero-subtitle="Что меняется внутри в первые недели отказа" data-hero-href="./articles.html?topic=food">
+                <img src="./assets/figma/raw_image_6.webp" alt="" />
+              </article>
+              <article class="hero-slide" data-slide data-hero-title-first="Общий анализ" data-hero-title-second="" data-hero-subtitle="Проверяем показатели: норма и отклонения" data-hero-href="./articles.html">
+                <img src="./assets/local/stock-blood-samples.jpg" alt="" />
+              </article>
+            </div>
+            <div class="slide-copy hero-copy">
+              <h1><span class="copy-line" data-hero-copy-first>Мое давление</span><span class="copy-line" data-hero-copy-second></span></h1>
+              <p data-hero-copy-subtitle>Моя ответственность: прими участие в проекте</p>
+              <a class="primary-button primary-button--large" data-hero-material-link href="https://ru.mybpapp.com/">Узнать больше</a>
+            </div>
+            <div class="hero-preview-shell">
+              <div class="hero-preview-tabs" role="tablist" aria-label="Выбрать главный материал">
+                <button class="hero-preview is-active" type="button" role="tab" aria-selected="true" data-hero-tab="0" style="--hero-tab-image: url('./assets/figma/hero-malysheva-hand-behind-head.webp'); background-position: center top"><span>Мое давление</span><small>Моя ответственность: прими участие в проекте</small></button>
+                <button class="hero-preview" type="button" role="tab" aria-selected="false" data-hero-tab="1" style="--hero-tab-image: url('./assets/local/stock-walk-park.webp')"><span>Ходьба каждый день</span><small>Выбираем верный темп</small></button>
+                <button class="hero-preview" type="button" role="tab" aria-selected="false" data-hero-tab="2" style="--hero-tab-image: url('./assets/figma/raw_image_6.webp')"><span>Месяц без сахара</span><small>Что меняется внутри в первые недели отказа</small></button>
+                <button class="hero-preview" type="button" role="tab" aria-selected="false" data-hero-tab="3" style="--hero-tab-image: url('./assets/local/stock-blood-samples.jpg')"><span>Общий анализ</span><small>Проверяем показатели: норма и отклонения</small></button>
+              </div>
+              <button class="hero-arrow hero-preview-edge hero-preview-edge--previous" type="button" data-preview-prev aria-label="Предыдущие превью" hidden><span aria-hidden="true">←</span></button>
+              <button class="hero-arrow hero-preview-edge hero-preview-edge--next" type="button" data-preview-next aria-label="Следующие превью" hidden><span aria-hidden="true">→</span></button>
+            </div>
+            <span class="hero-timeout" aria-hidden="true"><span></span></span>
+            <div class="hero-progress" aria-hidden="true"><span class="is-active"></span><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="home-content-frame">
+        <div class="home-leaderboard-frame">
+          <section class="advertisement-banner" aria-label="Реклама">
+            <span class="advertisement-banner__label">Реклама</span>
+            <a class="advertisement-banner__creative advertisement-banner__creative--leaderboard" data-ad-creative="aravia"></a>
+          </section>
+        </div>
+      <div class="wow-after-hero-shell is-sidebar-visible" data-wow-after-hero>
+        <div data-site-sidebar data-variant="wow" data-active="home"></div>
+
+        <div class="wow-after-hero-content">
+
+
+      <section class="section reveal" id="week">
+        <div class="week-digest" data-week-digest></div>
+      </section>
+
+      <div data-disease-library-mobile></div>
+
+      <div class="home-feed" data-home-material-sections></div>
+
+      <div data-site-footer data-variant="wow"></div>
+        </div>
+
+        <div data-site-right-rail></div>
+      </div>
+      </div>
+    </main>
+    <div class="opening-ad" data-opening-ad data-opening-ad-frequency="always" aria-hidden="true" inert>
+      <button class="opening-ad__scrim" type="button" tabindex="-1" aria-label="Закрыть рекламу" data-opening-ad-close></button>
+      <section class="opening-advertisement" role="dialog" aria-modal="true" aria-label="Полноэкранная реклама ZEEKR 001">
+        <button class="opening-ad__close" type="button" tabindex="-1" aria-label="Закрыть рекламу" data-opening-ad-close>×</button>
+        <a class="opening-ad__media" data-ad-creative="zeekr" tabindex="-1"></a>
+        <div class="opening-ad__copy">
+          <span class="opening-ad__brand">ZEEKR</span>
+          <h2>ZEEKR 001</h2>
+          <p>Электрический. Выразительный. Твой.</p>
+          <a class="opening-ad__cta" href="https://www.zeekr.eu/models/001" target="_blank" rel="noopener noreferrer" tabindex="-1">Открыть ZEEKR 001</a>
+        </div>
+      </section>
+    </div>
+    <script src="./articles-data.js?v=20260921-component-names"></script>
+    <script src="./site-components.js?v=20260921-component-names"></script>
+    <script src="./search-input.js?v=20260921-component-names"></script>
+    <script src="./route-context.js?v=20260921-component-names"></script>
+    <script src="./ad-rail.js?v=20260921-component-names"></script>
+    <script src="./home-materials.js?v=20260921-component-names"></script>
+    <script type="module" src="./home-feed.js?v=20260921-component-names"></script>
+    <script src="./script.js?v=20260921-component-names"></script>
+    <script src="./wow.js?v=20260921-component-names"></script>
+  </body>
+</html>

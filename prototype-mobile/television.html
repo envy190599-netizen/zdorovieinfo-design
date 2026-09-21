@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Телевидение — Здоровье Инфо</title>
+    <meta name="description" content="Архив сюжетов и выпусков программ «Жить здорово!» и «Здоровье». Выберите программу и год эфира." />
+    <link rel="icon" href="./favicon.ico?v=20260921" sizes="16x16 32x32 48x48" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=20260921" sizes="any" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=20260921" sizes="180x180" />
+    <link rel="stylesheet" href="./styles.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./wow-context.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./editorial-layout.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./header-navigation.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./component-geometry.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./primary-button-geometry.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./television.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./responsive-layout.css?v=20260921-component-names" />
+    <link rel="stylesheet" href="./typography.css?v=20260921-component-names" />
+  </head>
+  <body class="wow-route-context television-page">
+    <main class="phone-shell page-shell articles-page" aria-label="Телевидение Здоровье Инфо">
+      <div data-site-header data-variant="wow" data-active="television"></div>
+
+      <div class="topic-page-layout">
+        <div data-site-sidebar data-variant="wow" data-active="auto"></div>
+
+        <div class="topic-page-content">
+          <section class="section-intro section-intro--tv" aria-labelledby="tv-title">
+            <h1 id="tv-title">Телевидение</h1>
+            <p>Сюжеты и выпуски программ «Жить здорово!» и «Здоровье» с Еленой Малышевой.</p>
+            <form class="tv-filters" aria-label="Фильтры телеархива">
+              <fieldset class="program-filter">
+                <legend class="sr-only">Программа</legend>
+                <label><input type="radio" name="program" value="all" checked><span>Все программы</span></label>
+                <label><input type="radio" name="program" value="live-healthy"><span>Жить здорово!</span></label>
+                <label><input type="radio" name="program" value="health"><span>Здоровье</span></label>
+              </fieldset>
+              <div class="tv-search-row">
+              <div class="tv-search-form">
+                <label for="tv-query" class="sr-only">Ключевые слова</label>
+                <div class="tv-search">
+                  <input id="tv-query" name="q" type="search" maxlength="160" placeholder="Тема, название или участник" autocomplete="off" aria-controls="tv-results-grid" />
+                  <button class="tv-search-clear" type="button" data-tv-clear hidden>Очистить</button>
+                  <button class="tv-search-submit" type="submit" aria-label="Найти в телеархиве"><span class="tv-search-icon" aria-hidden="true"></span></button>
+                </div>
+              </div>
+                <fieldset class="view-switch">
+                  <legend class="sr-only">Вид материалов</legend>
+                  <div class="tv-view-options">
+                    <label title="Плитка"><input type="radio" name="view" value="grid" aria-label="Плитка" aria-controls="tv-results-grid" checked><span><i class="tv-view-icon tv-view-icon--grid" aria-hidden="true"></i></span></label>
+                    <label title="Список"><input type="radio" name="view" value="list" aria-label="Список" aria-controls="tv-results-grid"><span><i class="tv-view-icon tv-view-icon--list" aria-hidden="true"></i></span></label>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="tv-filter-row">
+                <label class="select"><span class="sr-only">Год эфира</span><select name="year" id="tv-year"><option value="all">Все годы</option></select></label>
+                <label class="select"><span class="sr-only">Порядок</span><select name="order"><option value="newest">Сначала новые</option><option value="oldest">Сначала старые</option></select></label>
+
+              </div>
+            </form>
+          </section>
+          <section class="articles-results tv-results" aria-label="Архив телепрограмм">
+            <p class="sr-only" role="status" data-tv-count></p>
+            <div class="topic-material-grid editorial-material-grid tv-grid" id="tv-results-grid" data-tv-grid></div>
+            <div class="empty-state empty-state--tv" data-tv-empty hidden>
+              <h2>Здесь пока нет материалов</h2>
+              <p>Измените запрос, выберите другой год или все программы.</p>
+              <button class="tv-more" type="button" data-tv-reset>Сбросить фильтры</button>
+            </div>
+            <noscript><p>Для фильтрации архива включите JavaScript. <a href="https://www.zdorovieinfo.ru/zhitzdorovo/">Открыть архив на действующем сайте</a>.</p></noscript>
+          </section>
+        </div>
+        <div data-site-right-rail></div>
+      </div>
+
+      <div data-site-footer data-variant="wow"></div>
+    </main>
+    <script src="./articles-data.js?v=20260921-component-names"></script>
+    <script src="./site-components.js?v=20260921-component-names"></script>
+    <script src="./route-context.js?v=20260921-component-names"></script>
+    <script src="./search-input.js?v=20260921-component-names"></script>
+    <script src="./shared.js?v=20260921-component-names"></script>
+    <script src="./home-materials.js?v=20260921-component-names"></script>
+    <script src="./ad-rail.js?v=20260921-component-names"></script>
+    <script type="module" src="./television.js?v=20260921-component-names"></script>
+  </body>
+</html>

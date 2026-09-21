@@ -1,0 +1,5 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- Filled adaptation of ZI Icons component 4039:12876, with a transparent Play cutout. -->
+<path d="M17 2L12 7L7 2" stroke="#003B5D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" d="M4 5.75H20A3.25 3.25 0 0 1 23.25 9V20A3.25 3.25 0 0 1 20 23.25H4A3.25 3.25 0 0 1 .75 20V9A3.25 3.25 0 0 1 4 5.75ZM10 10.5V18.5L16 14.5Z" fill="#003B5D"/>
+</svg>

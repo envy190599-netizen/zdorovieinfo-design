@@ -1,0 +1,58 @@
+/* Shared hero CTA: same corner token as the specials action. */
+body.wow-page.fullscreen-home .primary-button,
+body.component-library-page .primary-button {
+  min-width: 0;
+  min-height: 44px;
+  height: 44px;
+  padding: var(--zi-space-8) 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: var(--zi-radius-navigation);
+  color: #fff;
+  background: var(--blue);
+  font: var(--zi-type-caption-medium);
+  text-decoration: none;
+  transform: none;
+  transition: background-color 180ms ease;
+}
+
+/* Large variant follows the hero body size; default geometry stays available. */
+body.wow-page.fullscreen-home .primary-button--large,
+body.component-library-page .primary-button--large {
+  font-size: var(--hero-body-font-size, 18px);
+  line-height: var(--zi-leading-1-5);
+  min-height: max(48px, 3.333333em);
+  height: auto;
+  padding: 0.625em 1.25em;
+}
+
+body.wow-page.fullscreen-home .primary-button:is(:hover:where(html[data-hover-enabled] *), :focus-visible),
+body.component-library-page .primary-button:is(:hover:where(html[data-hover-enabled] *), :focus-visible) {
+  color: #fff;
+  background: var(--blue-deep);
+  transform: none;
+}
+
+body.wow-page.fullscreen-home .primary-button:focus-visible,
+body.component-library-page .primary-button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.wow-page.fullscreen-home .primary-button,
+  body.component-library-page .primary-button { transition: none; }
+}
+
+body:is(.wow-page, .wow-route-context) .header.header--wow > .special-button {
+  padding-inline: 16px;
+  border-radius: var(--zi-radius-navigation);
+  font-weight: var(--zi-weight-600);
+}
+
+body:is(.wow-page, .wow-route-context) .topic-more {
+  padding-inline: var(--zi-space-25);
+  border-radius: var(--zi-radius-pill);
+}

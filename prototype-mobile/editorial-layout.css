@@ -1,0 +1,455 @@
+:where(body.wow-route-context:not(.wow-page)) .sidebar-material-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  color: var(--ink);
+  text-decoration: none;
+  scroll-snap-align: start;
+}
+
+:where(body.wow-route-context:not(.wow-page)) .sidebar-material-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--wow-radius-sm);
+  background: var(--zi-color-border-default-subtle);
+  transition: transform 280ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+:where(body.wow-route-context:not(.wow-page)) .sidebar-material-card:hover:where(html[data-hover-enabled] *) img,
+:where(body.wow-route-context:not(.wow-page)) .sidebar-material-card:focus-visible img {
+  transform: scale(1.02);
+}
+
+:where(body.wow-route-context:not(.wow-page)) .sidebar-material-card h3 {
+  min-height: 63px;
+  margin: var(--wow-space-3) 0 var(--wow-space-2);
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font-size: var(--zi-font-size-16);
+  line-height: var(--zi-line-20);
+  font-weight: var(--zi-weight-600);
+
+}
+
+:where(body.wow-route-context:not(.wow-page)) .sidebar-material-card span {
+  color: #52778d;
+  font-size: var(--zi-font-size-12);
+  line-height: var(--zi-line-16);
+}
+
+/* The secondary column shares the compact editorial card component. */
+.home-right-rail {
+  display: none;
+  background: transparent;
+}
+
+@media (min-width: 1280px) {
+  .home-right-rail {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: var(--wow-space-4);
+    align-self: stretch;
+    min-width: 0;
+    display: block;
+  }
+
+  .wow-page.editorial-home .home-right-rail .advertisement-rail {
+    position: relative;
+    top: auto;
+    margin-top: var(--wow-space-4);
+  }
+}
+
+.home-right-rail__inner {
+  position: sticky;
+  display: flow-root;
+  transform: none;
+  overflow-anchor: none;
+}
+
+[data-disease-library-mobile]:empty {
+  display: none;
+}
+
+[data-disease-library-mobile]:not(:empty) {
+  margin-inline: var(--wow-space-4);
+}
+
+:is(.wow-page, .wow-route-context) #encyclopedia.disease-library {
+  display: block;
+  margin: 0;
+  padding: var(--wow-space-4);
+  scroll-margin-top: calc(var(--wow-header-height) + var(--wow-space-4));
+}
+
+.disease-library__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zi-space-8);
+}
+
+.disease-library__links a {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 1 auto;
+  max-width: 100%;
+  min-height: 40px;
+  padding: var(--zi-space-8) var(--zi-space-12);
+  border: 1px solid var(--zi-color-border-neutral-default);
+  border-radius: var(--zi-radius-pill);
+  background: var(--panel);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: var(--zi-font-size-14);
+  line-height: var(--zi-line-20);
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.disease-library__links .disease-pill { gap: 0; }
+
+.disease-library__links .disease-pill__icon {
+  flex: 0 0 auto;
+  width: 0;
+  margin-right: 0;
+  position: relative;
+  overflow: visible;
+  background: none;
+  -webkit-mask: none;
+  mask: none;
+  transition: width 180ms ease-out, margin-right 180ms ease-out;
+}
+
+/* Keep the artwork's mask at full size; only scale it around its center. */
+.disease-library__links .disease-pill__icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: currentColor;
+  -webkit-mask: var(--encyclopedia-icon) center / contain no-repeat;
+  mask: var(--encyclopedia-icon) center / contain no-repeat;
+  opacity: var(--encyclopedia-icon-reveal, 0);
+  transform: translate(-50%, -50%) scale(var(--encyclopedia-icon-reveal, 0));
+  transform-origin: center;
+  transition: transform 180ms ease-out, opacity 180ms ease-out;
+}
+
+.disease-library__links a:focus-visible .disease-pill__icon {
+  width: 20px;
+  margin-right: var(--zi-space-8);
+  --encyclopedia-icon-reveal: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .disease-library__links a:hover:where(html[data-hover-enabled] *) .disease-pill__icon {
+    width: 20px;
+    margin-right: var(--zi-space-8);
+    --encyclopedia-icon-reveal: 1;
+  }
+}
+
+.disease-library__links a:hover:where(html[data-hover-enabled] *) {
+  color: #fff;
+  background: var(--blue);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .disease-library__links a,
+  .disease-library__links .disease-pill__icon,
+  .disease-library__links .disease-pill__icon::before { transition: none; }
+}
+
+.home-right-rail__materials {
+  display: grid;
+  gap: var(--wow-space-4);
+  margin-top: 0;
+}
+
+.reading-sidebar {
+  padding: var(--wow-space-4);
+  border: 1px solid var(--zi-color-border-default-subtle);
+  border-radius: var(--wow-radius-md);
+  background: var(--panel);
+}
+
+.reading-sidebar > h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--wow-space-2);
+  margin: 0 0 var(--wow-space-4);
+  padding-bottom: var(--wow-space-3);
+  color: var(--ink);
+  font: var(--zi-type-panel-heading);
+}
+
+.reading-sidebar__list {
+  display: grid;
+  gap: 0;
+}
+
+:is(.wow-page, .wow-route-context) .sidebar-material-card {
+  padding-block: var(--zi-space-15);
+  border-bottom: 1px solid var(--zi-color-border-neutral-subtle);
+  transition: color 180ms ease;
+}
+
+:is(.wow-page, .wow-route-context) .sidebar-material-card:first-child {
+  padding-top: 0;
+}
+
+:is(.wow-page, .wow-route-context) .sidebar-material-card:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+:is(.wow-page, .wow-route-context) .sidebar-material-card h3 {
+  min-height: 0;
+  margin: 0 0 var(--wow-space-1);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  align-self: start;
+  font-size: var(--zi-font-size-14);
+  line-height: var(--zi-line-20);
+  font-weight: var(--zi-weight-500);
+
+}
+
+:is(.wow-page, .wow-route-context) .sidebar-material-card img {
+  margin-bottom: var(--wow-space-3);
+}
+
+:is(.wow-page, .wow-route-context) .sidebar-material-card--text img {
+  display: none;
+}
+
+:is(.wow-page, .wow-route-context) .sidebar-material-card--thumbnail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 64px;
+  column-gap: var(--wow-space-3);
+  align-content: start;
+}
+
+:is(.wow-page, .wow-route-context) .sidebar-material-card--thumbnail img {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  width: 64px;
+  height: 64px;
+  aspect-ratio: 1;
+  margin: 0;
+  border-radius: var(--wow-radius-xs);
+}
+
+:is(.wow-page, .wow-route-context) .sidebar-material-card--thumbnail h3,
+:is(.wow-page, .wow-route-context) .sidebar-material-card--thumbnail > span {
+  grid-column: 1;
+}
+
+:is(.wow-page, .wow-route-context) .sidebar-material-card:hover:where(html[data-hover-enabled] *),
+:is(.wow-page, .wow-route-context) .sidebar-material-card:focus-visible {
+  color: var(--blue);
+}
+
+:is(.wow-page, .wow-route-context) .sidebar-material-card:hover:where(html[data-hover-enabled] *) img,
+:is(.wow-page, .wow-route-context) .sidebar-material-card:focus-visible img {
+  transform: none;
+}
+
+.text-action {
+  display: flex;
+  align-items: center;
+  gap: var(--zi-space-8);
+  width: fit-content;
+  max-width: 100%;
+  min-height: 44px;
+  margin-top: var(--zi-space-20);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: var(--zi-type-action);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Keep 20 px around the label, accounting for its 44 px touch target. */
+.reading-sidebar > .reading-sidebar__more {
+  margin-top: calc(var(--zi-space-20) - var(--zi-space-12));
+  margin-bottom: calc(-1 * var(--zi-space-12));
+}
+
+.text-action:hover:where(html[data-hover-enabled] *) {
+  color: var(--blue);
+}
+
+.text-action__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  background: currentColor;
+  mask: url("./assets/figma/material-arrow-right.svg") center / contain no-repeat;
+}
+
+.reading-sidebar__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--wow-space-2);
+  padding-top: var(--wow-space-4);
+  color: #52778d;
+  font-size: var(--zi-font-size-12);
+}
+
+.reading-sidebar__arrow {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--zi-color-border-default-subtle);
+  border-radius: var(--wow-radius-round);
+  color: var(--blue);
+  background: var(--zi-color-background-default-secondary);
+  cursor: pointer;
+  transition: background 180ms ease, opacity 180ms ease;
+}
+
+.reading-sidebar__arrow:hover:where(html[data-hover-enabled] *):not(:disabled) {
+  background: var(--zi-color-border-default-subtle);
+}
+
+.reading-sidebar__arrow:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.reading-sidebar__chevron {
+  width: 18px;
+  height: 18px;
+  background: currentColor;
+  mask: url("./assets/figma/article-chevron-up.svg") center / contain no-repeat;
+  transform: rotate(90deg);
+}
+
+.reading-sidebar__chevron--previous {
+  transform: rotate(-90deg);
+}
+
+.reading-sidebar a:focus-visible,
+.reading-sidebar button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: -2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.wow-page, .wow-route-context) .sidebar-material-card,
+  :is(.wow-page, .wow-route-context) .sidebar-material-card img,
+  .reading-sidebar__arrow {
+    transition: none;
+  }
+}
+
+.home-right-rail .advertisement-rail { position: relative; top: auto; width: 100%; height: auto; margin-top: var(--zi-space-15); display: block; }
+.home-right-rail .advertisement-rail__stage { position: relative; width: 100%; height: auto; aspect-ratio: 300 / 250; max-height: calc(100dvh - var(--wow-header-height) - 32px); overflow: hidden; border-radius: var(--wow-radius-md); background: white; }
+.home-right-rail .advertisement-rail__label { position: absolute; top: 14px; left: 16px; z-index: 3; color: white; font-size: var(--zi-font-size-12); line-height: var(--zi-line-16); font-weight: var(--zi-weight-600); text-transform: uppercase; text-shadow: 0 1px 4px rgba(0,45,70,.5); }
+.home-right-rail .wow-desktop-ad-creative { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity 520ms ease; }
+.home-right-rail .wow-desktop-ad-creative.is-active { opacity: 1; pointer-events: auto; }
+.home-right-rail .wow-desktop-ad-creative video { width: 100%; height: 100%; display: block; object-fit: contain; }
+body :is(.topic-material-grid, .mixed-material-feed__grid).editorial-material-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--zi-space-20);
+}
+
+body :is(.topic-material-grid, .mixed-material-feed__grid).editorial-material-grid > .material-card:nth-child(5n) {
+  grid-column: 1 / -1;
+}
+
+body :is(.topic-material-grid, .mixed-material-feed__grid).editorial-material-grid > .material-card:nth-child(5n) .material-card__image {
+  aspect-ratio: 37 / 17;
+}
+
+@media (max-width: 767px) {
+  body :is(.topic-material-grid, .mixed-material-feed__grid).editorial-material-grid { gap: var(--zi-space-12); }
+  body :is(.topic-material-grid, .mixed-material-feed__grid).editorial-material-grid .material-card__content h3 {
+    font-size: var(--zi-font-size-14);
+    line-height: var(--zi-line-18);
+    -webkit-line-clamp: 4;
+  }
+}
+
+/* Pointer scrolling is opt-in while hovering; focus can still reveal links. */
+@media (hover: hover) and (pointer: fine) {
+  .sidebar[data-sidebar-scroll="hover"] {
+    --sidebar-scroll-overflow: hidden;
+    overscroll-behavior-y: contain;
+  }
+
+  .sidebar[data-sidebar-scroll="hover"]:is(:hover:where(html[data-hover-enabled] *), :has(:focus-visible)) {
+    --sidebar-scroll-overflow: auto;
+  }
+}
+
+/* Measured from T—Ж: 370/760 px columns, 25 px corners, 170 px compact covers. */
+body :is(.topic-material-grid, .mixed-material-feed__grid).editorial-material-grid {
+  max-width: var(--zi-layout-feed-max);
+}
+body .editorial-material-grid > .material-card {
+  display: flex;
+  flex-direction: column;
+  border: 0;
+  border-radius: var(--zi-radius-panel);
+  background: #fff;
+  box-shadow: none;
+  outline: 1px solid transparent;
+  outline-offset: 0;
+  transition: box-shadow 180ms ease;
+}
+body .editorial-material-grid > .material-card .material-card__image {
+  flex-shrink: 0;
+  aspect-ratio: 37 / 17;
+}
+body .editorial-material-grid > .material-card .material-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zi-space-12);
+  flex: 1;
+  min-height: 139px;
+  padding: var(--zi-space-15);
+}
+body .editorial-material-grid > .material-card .material-card__meta {
+  margin: auto 0 0;
+}
+body .editorial-material-grid > .material-card:nth-child(5n) .material-card__image {
+  width: calc(100% - 20px);
+  margin: 10px 10px 0;
+  aspect-ratio: 37 / 17;
+  border-radius: var(--zi-radius-media);
+}
+body .editorial-material-grid > .material-card:nth-child(5n) .material-card__content {
+  padding: var(--zi-space-20) var(--zi-space-30) var(--zi-space-30);
+}
+@media (hover: hover) {
+  body .editorial-material-grid > .material-card:hover:where(html[data-hover-enabled] *):not(:focus-visible) { outline-color: transparent; box-shadow: var(--zi-shadow-card-hover); }
+}
+body .editorial-material-grid > .material-card:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+@media (max-width: 767px) {
+  body .editorial-material-grid > .material-card .material-card__content { padding: var(--zi-space-12); min-height: 0; }
+  body .editorial-material-grid > .material-card:nth-child(5n) .material-card__content { padding: var(--zi-space-15); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body .editorial-material-grid > .material-card { transition: none; }
+}

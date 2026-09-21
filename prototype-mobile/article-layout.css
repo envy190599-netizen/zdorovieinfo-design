@@ -1,0 +1,141 @@
+/* Article detail uses the same editorial shell and rails as the directory. */
+
+body.wow-route-context .article-detail-page .article-layout.material-reader-card {
+  padding: var(--zi-inset-panel);
+  border: 0;
+  border-radius: var(--zi-radius-panel);
+  background: var(--panel);
+  box-shadow: var(--zi-shadow-card);
+  gap: var(--zi-gap-section);
+}
+
+body.wow-route-context .article-detail-page .article-root {
+  display: grid;
+  gap: var(--zi-space-20);
+}
+
+body.wow-route-context .article-detail-page .article-layout,
+body.wow-route-context .article-detail-page .article-main {
+  gap: var(--zi-space-20);
+}
+
+body.wow-route-context .article-detail-page .article-heading .article-title {
+  display: block;
+  height: auto;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+}
+
+body.wow-route-context .article-detail-page .article-heading .article-title {
+  margin: 0;
+  color: var(--ink);
+  font-size: var(--zi-font-size-28);
+  line-height: var(--zi-leading-1-1);
+  font-weight: var(--zi-weight-600);
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 768px) {
+  body.wow-route-context .article-detail-page .article-heading .article-title {
+    font-size: var(--zi-font-size-44);
+    line-height: var(--zi-leading-1-1);
+  }
+}
+
+body.wow-route-context .article-detail-page .reviewer summary strong,
+body.wow-route-context .article-detail-page .reviewer summary small {
+  white-space: normal;
+}
+
+body.wow-route-context .article-detail-page .reviewer summary {
+  height: auto;
+  min-height: 88px;
+  padding-block: var(--zi-space-15);
+}
+
+body.wow-route-context .article-detail-page .article-leaderboard {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 0 0 var(--zi-gap-section);
+  padding: 0;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--zi-radius-panel);
+  background: transparent;
+}
+
+body.wow-route-context .article-detail-page .article-leaderboard .advertisement-banner__creative {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: var(--ad-aspect-ratio, 970 / 250);
+  margin: 0;
+  padding: 0;
+  display: block;
+  flex: none;
+  background: transparent;
+}
+
+body.wow-route-context .article-detail-page .article-leaderboard .advertisement-banner__creative::after {
+  display: none;
+}
+
+body.wow-route-context .article-detail-page .article-leaderboard video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+body.wow-route-context .article-detail-page .article-leaderboard .advertisement-banner__label {
+  top: var(--zi-space-10);
+  left: var(--zi-space-15);
+  bottom: auto;
+  display: block;
+  z-index: 1;
+}
+
+/* Original editorial flow, without excerpt clamps or a repeated image template. */
+body.wow-route-context .article-prose { display: block; min-width: 0; color: var(--ink); font-size: var(--zi-font-size-18); line-height: var(--zi-leading-1-6); overflow-wrap: anywhere; }
+.article-prose > :first-child { margin-top: 0; }
+.article-prose > :last-child { margin-bottom: 0; }
+.article-prose p, .article-prose ul, .article-prose ol { margin: 0 0 var(--zi-space-20); }
+.article-prose h2 { margin: var(--zi-space-30) 0 var(--zi-space-15); font-size: var(--zi-font-size-28); line-height: var(--zi-leading-1-25); font-weight: var(--zi-weight-600); }
+.article-prose h3, .article-prose h4 { margin: var(--zi-space-30) 0 var(--zi-space-15); font-size: var(--zi-font-size-21); line-height: var(--zi-leading-1-4); font-weight: var(--zi-weight-600); }
+.article-prose h2 strong, .article-prose h3 strong, .article-prose h4 strong { font-weight: inherit; }
+.article-prose li + li { margin-top: 10px; }
+.article-prose ul, .article-prose ol { padding-left: 1.4em; }
+.article-prose img { display: block; max-width: 100%; width: 100%; height: auto; margin-block: var(--zi-space-20); }
+/* Large editorial photographs share the approved wide-card rounding. */
+body.wow-route-context .article-detail-page :is(.article-prose img, .article-detail__hero, .article-copy img):not(.article-source-button img) {
+  border-radius: var(--zi-radius-panel);
+}
+.article-prose p:first-child img { margin-top: 0; }
+.article-prose a { color: var(--blue); text-underline-offset: 3px; }
+.article-prose blockquote { margin: var(--zi-space-20) 0; padding-left: var(--zi-space-20); border-left: 3px solid #c7e3f5; }
+.article-video { display: block; width: 100%; max-height: 75svh; height: auto; border: 0; border-radius: var(--zi-radius-media); margin-block: var(--zi-space-20); background: #003854; }
+@media (max-width: 767px) {
+  body.wow-route-context .article-prose { font-size: var(--zi-font-size-16); line-height: var(--zi-leading-1-6); }
+  .article-prose h2 { font-size: var(--zi-font-size-24); }
+  .article-prose h3, .article-prose h4 { font-size: var(--zi-font-size-20); }
+}
+
+/* Reuse the shared footer inside the same column as the reading follow-ups. */
+body.wow-route-context .article-detail-page .topic-page-content > .footer {
+  width: 100%;
+  margin: var(--zi-gap-section) 0 0;
+}
+
+.article-prose .article-source-item { margin: 0; padding-block: 6px; border-bottom: 1px solid var(--zi-color-border-default-subtle); }
+.source-reference { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--zi-space-12); }
+.source-reference__title { min-width: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; font-size: var(--zi-font-size-14); font-weight: var(--zi-weight-400); font-style: normal; line-height: var(--zi-line-20); }
+.source-reference__actions { display: flex; flex-direction: row; gap: var(--zi-space-8); }
+.article-prose .article-source-button {
+  display: grid; place-items: center; width: 44px; height: 44px;
+  border: 1px solid var(--zi-color-border-default-subtle); border-radius: var(--zi-radius-pill);
+  background: var(--panel); text-decoration: none;
+}
+.article-prose .article-source-button img { width: 17px; height: 17px; margin: 0; border-radius: 0; }
+.article-prose .article-source-button:hover:where(html[data-hover-enabled] *) { background: #eef7fc; border-color: #c7e3f5; }
+.article-prose .article-source-button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }

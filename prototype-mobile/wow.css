@@ -1,0 +1,3001 @@
+.wow-page {
+  /* Global scale */
+  --wow-space-1: var(--zi-space-4);
+  --wow-space-2: var(--zi-space-8);
+  --wow-space-3: var(--zi-space-12);
+  --wow-space-4: var(--zi-space-15);
+  --wow-space-5: var(--zi-space-20);
+  --wow-space-6: var(--zi-space-20);
+  --wow-space-8: var(--zi-space-30);
+  --wow-space-10: var(--zi-space-40);
+  --wow-space-12: var(--zi-space-40);
+  --wow-space-16: var(--zi-space-60);
+  --wow-radius-xs: var(--zi-radius-control);
+  --wow-radius-sm: var(--zi-radius-media);
+  --wow-radius-md: var(--zi-radius-panel);
+  --wow-radius-lg: var(--zi-radius-panel);
+  --wow-radius-xl: var(--zi-radius-panel);
+  --wow-radius-pill: var(--zi-radius-pill);
+  --wow-radius-round: var(--zi-radius-round);
+
+  /* Component aliases */
+  --wow-radius-header: var(--wow-radius-lg);
+  --wow-radius-hero: var(--wow-radius-xl);
+
+  --wow-radius-control: var(--zi-radius-control);
+  --wow-radius-control-compact: var(--zi-radius-control);
+
+  --wow-inset-surface: var(--wow-space-6);
+  --wow-gap-layout: var(--wow-space-6);
+  --wow-section-space: var(--wow-space-12);
+  --wow-hero-inset-x-max: var(--wow-space-10);
+  --wow-hero-inset-y-max: var(--wow-space-6);
+  --wow-hero-radius-max: var(--wow-radius-hero);
+  --wow-shell: 1280px;
+  --wow-gutter: var(--wow-space-12);
+  --wow-header-height: 80px;
+  --wow-header-expanded-height: 96px;
+  --wow-header-active-height: var(--wow-header-expanded-height);
+  --wow-header-offset: var(--wow-space-4);
+  --wow-page-gradient: var(--bg);
+  background: var(--wow-page-gradient);
+  color: var(--ink);
+}
+
+html:has(body.wow-page) {
+  background: var(--bg);
+}
+
+.wow-page:has(.header.is-scrolled) {
+  --wow-header-active-height: var(--wow-header-height);
+}
+
+.wow-page .wow-shell {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: clip visible;
+  background: transparent;
+}
+
+.wow-page .header {
+  position: fixed;
+  top: var(--wow-header-offset);
+  right: auto;
+  left: 50%;
+  z-index: 100;
+  width: min(96vw, 1920px);
+  height: var(--wow-header-active-height);
+  margin: 0;
+  padding: var(--wow-space-4) var(--wow-inset-surface);
+  display: grid;
+  grid-template-columns: 154px minmax(360px, 1fr) minmax(220px, 320px);
+  gap: var(--wow-gap-layout);
+  align-items: center;
+  border: 1px solid rgba(227, 239, 246, 0.88);
+  border-radius: var(--wow-radius-header);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 14px 42px rgba(0, 59, 93, 0.1);
+  backdrop-filter: blur(18px) saturate(130%);
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
+  transform: translateX(-50%);
+  transition: width 320ms ease, height 280ms ease, background 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+}
+
+.wow-page .header.is-scrolled {
+  width: min(calc(100vw - (var(--wow-gutter) * 2)), var(--wow-shell));
+  border-color: rgba(227, 239, 246, 0.98);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 16px 44px rgba(0, 59, 93, 0.14);
+}
+
+.wow-page .header .logo {
+  width: 132px;
+  min-width: 132px;
+  height: 49px;
+  margin: 0;
+}
+
+.wow-page .search-input {
+  position: static;
+  width: 100%;
+  min-width: 0;
+  height: 46px;
+  margin: 0;
+  display: block;
+}
+
+.wow-page .search-input label {
+  height: 46px;
+  padding: 0 var(--wow-space-4);
+  border: 1px solid var(--zi-color-border-default-subtle);
+  border-radius: var(--wow-radius-pill);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.wow-page .search-input input {
+  font-size: var(--zi-font-size-14);
+  line-height: var(--zi-line-20);
+  font-weight: var(--zi-weight-500);
+}
+
+.wow-page .header-actions,
+.wow-page .burger-menu,
+.wow-page .menu-scrim,
+.wow-page .header-specials-scrim,
+.wow-page .advertisement-banner,
+.wow-page .desktop-ad-rail {
+  display: none;
+}
+
+.wow-page .hero {
+  --wow-pointer-x: 0px;
+  --wow-pointer-y: 0px;
+  --wow-hero-scale: 1.03;
+  --wow-hero-inset-x: 0px;
+  --wow-hero-inset-y: 0px;
+  --wow-hero-radius: 0px;
+  position: relative;
+  order: 1;
+  width: 100%;
+  margin: 0;
+  min-height: 175svh;
+  padding: 0;
+  display: block;
+  overflow: visible;
+  background: #eaf6fd;
+}
+
+.wow-page .hero-frame {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100svh;
+  min-height: 0;
+  aspect-ratio: auto;
+  overflow: hidden;
+}
+
+.wow-hero-mask {
+  position: absolute;
+  inset: var(--wow-hero-inset-y) var(--wow-hero-inset-x);
+  overflow: hidden;
+  border-radius: var(--wow-hero-radius);
+  background: #eaf6fd;
+  will-change: inset, border-radius;
+}
+
+.wow-page .hero-slider {
+  position: absolute;
+  top: calc(0px - var(--wow-hero-inset-y));
+  left: calc(0px - var(--wow-hero-inset-x));
+  width: 100vw;
+  height: 100svh;
+}
+
+.wow-page .hero-slide {
+  height: 100%;
+}
+
+.wow-page .hero-slide {
+  border-radius: 0;
+}
+
+.wow-page .hero-slide img {
+  transform: translate(var(--wow-pointer-x), var(--wow-pointer-y)) scale(var(--wow-hero-scale));
+  transform-origin: center;
+  transition: transform 160ms linear;
+}
+
+.wow-page .hero-slide::after {
+  background: rgba(0, 45, 70, 0.34);
+}
+
+.wow-page .slide-copy {
+  top: auto;
+  right: auto;
+  bottom: 118px;
+  left: max(var(--wow-gutter), calc((100% - var(--wow-shell)) / 2));
+  width: min(620px, calc(100% - (var(--wow-gutter) * 2)));
+  color: #ffffff;
+  text-align: left;
+  text-shadow: 0 2px 18px rgba(0, 35, 54, 0.28);
+  pointer-events: none;
+}
+
+.wow-page .slide-copy h1 {
+  margin: 0 0 12px;
+  font-size: var(--zi-font-size-44);
+  line-height: var(--zi-line-52);
+  font-weight: var(--zi-weight-600);
+
+  text-wrap: balance;
+}
+
+.wow-page .copy-line,
+.wow-page .slide-copy p {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+
+.wow-page .slide-copy p {
+  font-size: var(--zi-font-size-18);
+  line-height: var(--zi-line-25);
+  font-weight: var(--zi-weight-400);
+
+}
+
+.wow-page .hero-copy.is-updating {
+  animation: heroCopyIn 260ms ease-out both;
+}
+
+.hero-timeout {
+  position: absolute;
+  top: calc(var(--wow-header-offset) + var(--wow-header-active-height) + 12px);
+  right: clamp(20px, 3vw, 48px);
+  left: clamp(20px, 3vw, 48px);
+  z-index: 7;
+  height: 2px;
+  overflow: hidden;
+  border-radius: var(--wow-radius-pill);
+  background: rgba(255, 255, 255, 0.14);
+  pointer-events: none;
+  transition: top 280ms ease;
+}
+
+.hero-timeout span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.hero-timeout span.is-running {
+  animation: heroTimeoutProgress 4.6s linear forwards;
+}
+
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 7;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: var(--wow-radius-round);
+  color: #ffffff;
+  background: rgba(0, 59, 93, 0.22);
+  box-shadow: 0 6px 20px rgba(0, 45, 70, 0.14);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transform: translateY(-50%);
+  transition: opacity 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease;
+  cursor: pointer;
+}
+
+.hero-arrow span {
+  display: block;
+  font-size: var(--zi-font-size-28);
+  line-height: var(--zi-leading-1);
+  transform: translateY(-1px);
+}
+
+.hero-arrow:hover:where(html[data-hover-enabled] *),
+.hero-arrow:focus-visible {
+  border-color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 59, 93, 0.42);
+}
+
+.hero-arrow:active {
+  transform: translateY(-50%) scale(0.94);
+}
+
+.wow-page .hero-progress {
+  right: auto;
+  bottom: 36px;
+  left: 50%;
+  width: auto;
+  display: flex;
+  grid-template-columns: none;
+  gap: var(--zi-space-10);
+  transform: translateX(-50%);
+}
+
+.wow-page .hero-progress span {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--wow-radius-round);
+  background: rgba(255, 255, 255, 0.42);
+  transition: background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.wow-page .hero-progress span::before {
+  display: none;
+}
+
+.wow-page .hero-progress span.is-active {
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.18);
+  transform: scale(1.08);
+}
+
+.wow-page > .section,
+.wow-page .wow-shell > .section,
+.wow-page .wow-shell > .slideshow,
+.wow-page .wow-shell > .footer {
+  order: 3;
+}
+
+.wow-page .section,
+.wow-page .slideshow,
+.wow-page .footer {
+  width: min(calc(100% - (var(--wow-gutter) * 2)), var(--wow-shell));
+  max-width: none;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.wow-page .section {
+  min-height: 0;
+  padding: 112px 0;
+}
+
+.wow-page .section-heading {
+  max-width: 760px;
+  margin-bottom: var(--zi-space-40);
+}
+
+.wow-page .section-heading h2 {
+  font-size: var(--zi-font-size-44);
+  line-height: var(--zi-line-52);
+  font-weight: var(--zi-weight-600);
+
+  text-wrap: balance;
+}
+
+.wow-page .section-heading p {
+  margin-top: var(--zi-space-10);
+  font-size: var(--zi-font-size-18);
+  line-height: var(--zi-line-28);
+  font-weight: var(--zi-weight-400);
+}
+
+.wow-page #week {
+  position: relative;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  background: transparent;
+}
+
+.wow-page #week .section-heading {
+  width: min(calc(100% - (var(--wow-gutter) * 2)), var(--wow-shell));
+  max-width: none;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.wow-page #projects {
+  width: 100%;
+  padding-right: max(var(--wow-gutter), calc((100% - var(--wow-shell)) / 2));
+  padding-left: max(var(--wow-gutter), calc((100% - var(--wow-shell)) / 2));
+  overflow: hidden;
+  background: transparent;
+}
+
+.wow-page #encyclopedia {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.75fr) minmax(520px, 1.25fr);
+  gap: 72px;
+  align-items: start;
+}
+
+.wow-page #encyclopedia .section-heading {
+  position: sticky;
+  top: 116px;
+}
+
+.wow-page .slideshow {
+  height: auto;
+  min-height: 680px;
+  padding: 104px 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(420px, 0.9fr);
+  grid-template-rows: auto 1fr auto;
+  column-gap: 72px;
+  row-gap: var(--zi-space-20);
+  align-items: start;
+}
+
+.wow-page .slideshow p {
+  max-width: none;
+  margin-top: var(--zi-space-20);
+  font-size: var(--zi-font-size-16);
+  line-height: var(--zi-line-28);
+}
+
+.wow-page .topic-more {
+  grid-column: 2;
+  grid-row: 3;
+  max-width: none;
+  height: 52px;
+  border-radius: var(--wow-radius-control-compact);
+}
+
+.wow-page #infographics {
+  width: 100%;
+  padding-right: max(var(--wow-gutter), calc((100% - var(--wow-shell)) / 2));
+  padding-left: max(var(--wow-gutter), calc((100% - var(--wow-shell)) / 2));
+  background: transparent;
+}
+
+.wow-page .footer {
+  width: 100%;
+  margin: 0;
+  padding: 72px max(var(--wow-gutter), calc((100% - var(--wow-shell)) / 2)) 40px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.wow-page .footer-content {
+  grid-template-columns: minmax(260px, 0.8fr) minmax(420px, 1.2fr);
+  gap: 72px;
+}
+
+.wow-page [data-wow-reveal] {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.wow-page [data-wow-reveal].is-wow-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wow-page .reveal,
+.wow-page .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (min-width: 1600px) {
+  .wow-page .slide-copy h1 {
+    font-size: var(--zi-font-size-48);
+    line-height: var(--zi-line-52);
+  }
+}
+
+@media (max-width: 1100px) {
+  .wow-page {
+    --wow-gutter: 32px;
+  }
+
+  .wow-page .header {
+    grid-template-columns: 132px 1fr minmax(210px, 280px);
+    gap: var(--zi-space-20);
+  }
+
+  .wow-page .slide-copy h1 {
+    font-size: var(--zi-font-size-40);
+    line-height: var(--zi-line-44);
+  }
+
+}
+
+@media (max-width: 767px) {
+  .wow-page {
+    --wow-gutter: 20px;
+    --wow-header-height: 72px;
+    --wow-header-expanded-height: 72px;
+    --wow-header-offset: 12px;
+  }
+
+  .wow-page .wow-shell {
+    width: 100%;
+  }
+
+  .wow-page .header,
+  .wow-page .header.is-scrolled {
+    height: var(--wow-header-active-height);
+    top: var(--wow-header-offset);
+    right: 12px;
+    left: 12px;
+    width: auto;
+    padding: var(--zi-space-12) var(--zi-space-20);
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgba(227, 239, 246, 0.92);
+    border-radius: var(--wow-radius-lg);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 12px 34px rgba(0, 59, 93, 0.12);
+    transform: none;
+  }
+
+  .wow-page .header:has(.menu-toggle.is-open) {
+    border-radius: var(--wow-radius-lg) var(--wow-radius-lg) 0 0;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 12px 34px rgba(0, 59, 93, 0.12);
+  }
+
+  .wow-page .header .logo {
+    width: 108px;
+    min-width: 108px;
+    height: 40px;
+  }
+
+  .wow-page .search-input {
+    display: none;
+  }
+
+  .wow-page .header-actions {
+    display: flex;
+  }
+
+  .wow-page .mobile-search-button {
+    display: grid;
+  }
+
+  .wow-page .menu-toggle {
+    display: block;
+  }
+
+  .wow-page .menu-scrim {
+    display: block;
+  }
+
+  .wow-page .burger-menu,
+  .wow-page .burger-menu.is-open {
+    position: fixed;
+    top: calc(var(--wow-header-offset) + var(--wow-header-active-height));
+    right: 12px;
+    left: 12px;
+    z-index: 90;
+    width: auto;
+    height: 0;
+    padding: 0 var(--zi-space-20);
+    display: flex;
+    overflow: hidden;
+    border: 1px solid rgba(227, 239, 246, 0.92);
+    border-top: 0;
+    border-radius: 0 0 var(--wow-radius-lg) var(--wow-radius-lg);
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 18px 38px rgba(0, 59, 93, 0.14);
+    opacity: 0;
+    transform: none;
+    transition: height 280ms ease, padding 280ms ease, opacity 180ms ease;
+  }
+
+  .wow-page .burger-menu.is-open {
+    height: calc(100svh - var(--wow-header-offset) - var(--wow-header-active-height) - 12px);
+    padding-top: var(--zi-space-20);
+    padding-bottom: var(--zi-space-20);
+    opacity: 1;
+  }
+
+  .wow-page .desktop-sidebar-brand {
+    display: none;
+  }
+
+  .wow-page .hero {
+    min-height: 740px;
+    display: grid;
+    place-items: stretch;
+    overflow: hidden;
+  }
+
+  .wow-page .hero-frame {
+    position: relative;
+    top: auto;
+    height: min(780px, 92svh);
+    min-height: 700px;
+  }
+
+  .wow-hero-mask {
+    inset: 0;
+    border-radius: 0;
+  }
+
+  .wow-page .hero-slider {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: 100%;
+  }
+
+  .wow-page .slide-copy {
+    right: 20px;
+    bottom: 116px;
+    left: 20px;
+    width: auto;
+    text-align: center;
+  }
+
+  .wow-page .slide-copy h1 {
+    font-size: var(--zi-font-size-24);
+    line-height: var(--zi-line-30);
+    font-weight: var(--zi-weight-600);
+  }
+
+  .wow-page .slide-copy p {
+    font-size: var(--zi-font-size-15);
+    line-height: var(--zi-line-22);
+    font-weight: var(--zi-weight-400);
+  }
+
+  .wow-page .hero-progress {
+    right: auto;
+    bottom: 72px;
+    left: 50%;
+  }
+
+  .hero-timeout {
+    top: calc(var(--wow-header-offset) + var(--wow-header-active-height) + 10px);
+    right: 20px;
+    left: 20px;
+  }
+
+  .hero-arrow {
+    width: 44px;
+    height: 44px;
+  }
+
+  .hero-arrow span {
+    font-size: var(--zi-font-size-24);
+  }
+
+  .wow-page .section,
+  .wow-page .slideshow,
+  .wow-page .newsletter,
+  .wow-page .footer {
+    width: 100%;
+  }
+
+  .wow-page .section {
+    padding: 72px var(--zi-space-20);
+  }
+
+  .wow-page .section-heading {
+    margin-bottom: var(--zi-space-30);
+  }
+
+  .wow-page .section-heading h2 {
+    font-size: var(--zi-font-size-28);
+    line-height: var(--zi-line-36);
+  }
+
+  .wow-page .section-heading p {
+    font-size: var(--zi-font-size-15);
+    line-height: var(--zi-line-22);
+  }
+
+  .wow-page #week,
+  .wow-page #projects,
+  .wow-page #infographics {
+    padding: 72px var(--zi-space-20);
+  }
+
+  .wow-page #week {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .wow-page #week .section-heading {
+    width: auto;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .wow-page > .newsletter,
+  .wow-page .wow-shell > .newsletter {
+    min-height: 320px;
+    padding: var(--zi-space-60) var(--zi-space-20);
+    display: flex;
+    gap: var(--zi-space-30);
+  }
+
+  .wow-page .newsletter h2 {
+    font-size: var(--zi-font-size-32);
+    line-height: var(--zi-line-36);
+  }
+
+  .wow-page .newsletter p {
+    font-size: var(--zi-font-size-15);
+    line-height: var(--zi-line-22);
+  }
+
+  .wow-page #encyclopedia {
+    display: block;
+  }
+
+  .wow-page #encyclopedia .section-heading {
+    position: static;
+  }
+
+  .wow-page .slideshow {
+    min-height: 0;
+    padding: 72px var(--zi-space-20);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 220px 48px auto 48px;
+    gap: var(--zi-space-20);
+  }
+
+  .wow-page .slideshow p {
+    font-size: var(--zi-font-size-15);
+    line-height: var(--zi-line-22);
+  }
+
+  .wow-page .topic-more {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .wow-page .footer {
+    padding: 56px var(--zi-space-20) var(--zi-space-30);
+  }
+
+  .wow-page .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--zi-space-30);
+  }
+}
+
+@media (max-width: 359px) {
+  .wow-page .slide-copy h1 {
+    font-size: var(--zi-font-size-20);
+    line-height: var(--zi-line-25);
+  }
+
+  .wow-page .slide-copy p {
+    font-size: var(--zi-font-size-14);
+    line-height: var(--zi-line-20);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wow-page .hero {
+    min-height: 100svh;
+  }
+
+  .wow-page .hero-frame {
+    position: relative;
+  }
+
+  .wow-page *,
+  .wow-page *::before,
+  .wow-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero-timeout {
+    display: none;
+  }
+}
+
+@keyframes heroTimeoutProgress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes heroCopyIn {
+  from {
+    opacity: 0.72;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Immersive navigation, hero motion and compact editorial rhythm. */
+.wow-page {
+  --wow-header-extra-height: 0px;
+}
+
+.wow-page:has(.header.is-specials-open) {
+  --wow-header-extra-height: 68px;
+}
+
+.wow-page .header {
+  grid-template-columns: 154px minmax(300px, 1fr) minmax(220px, 320px) auto;
+  grid-template-rows: minmax(0, 1fr) 0;
+  column-gap: var(--zi-space-20);
+  row-gap: 0;
+  overflow: hidden;
+}
+
+.wow-page .header > .logo,
+.wow-page .header > .search-input,
+.wow-page .header > .special-button {
+  grid-row: 1;
+}
+
+.wow-page .header.is-specials-open {
+  height: calc(var(--wow-header-active-height) + var(--wow-header-extra-height));
+  grid-template-rows: minmax(0, 1fr) 44px;
+}
+
+.special-button {
+  justify-self: end;
+  height: 40px;
+  padding: 0 var(--zi-space-15);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zi-space-10);
+  border: 1px solid transparent;
+  border-radius: var(--wow-radius-pill);
+  color: #ffffff;
+  background: var(--pink);
+  font: inherit;
+  font-size: var(--zi-font-size-13);
+  line-height: var(--zi-line-18);
+  font-weight: var(--zi-weight-600);
+  cursor: pointer;
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.special-button:hover:where(html[data-hover-enabled] *),
+.special-button:focus-visible {
+  background: #b91849;
+}
+
+.special-button:active {
+  transform: scale(0.97);
+}
+
+.header.is-specials-open .special-button,
+.header.is-specials-open .special-button:hover:where(html[data-hover-enabled] *),
+.header.is-specials-open .special-button:focus-visible {
+  color: var(--pink);
+  border-color: var(--pink);
+  background: #ffffff;
+}
+
+.special-projects {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  min-width: 0;
+  height: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--zi-space-10);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: height 240ms ease, opacity 180ms ease;
+}
+
+.header.is-specials-open .special-projects {
+  height: 44px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.special-projects a {
+  min-height: 34px;
+  padding: 0 var(--zi-space-15);
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  border: 1px solid var(--blue);
+  border-radius: var(--wow-radius-pill);
+  color: var(--blue-deep);
+  background: rgba(255, 255, 255, 0.68);
+  font-size: var(--zi-font-size-13);
+  line-height: var(--zi-line-18);
+  font-weight: var(--zi-weight-500);
+  text-decoration: none;
+  transition: color 180ms ease, background 180ms ease;
+}
+
+.special-projects a:hover:where(html[data-hover-enabled] *),
+.special-projects a:focus-visible {
+  color: #ffffff;
+  background: var(--blue);
+}
+
+.hero-timeout {
+  top: calc(var(--wow-header-offset) + var(--wow-header-active-height) + var(--wow-header-extra-height) + 12px);
+}
+
+.wow-page .hero,
+.wow-hero-mask {
+  background: transparent;
+}
+
+.wow-page .hero-slide {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 760ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.wow-page .hero-slide.is-active {
+  z-index: 1;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.wow-page .hero-slider {
+  overflow: hidden;
+  scroll-snap-type: none;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.wow-page .hero-slider:active {
+  cursor: grabbing;
+}
+
+.wow-page .hero-slide img,
+.wow-page .hero-slide video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: saturate(0.92) contrast(0.98);
+  transform: translate(var(--wow-pointer-x), var(--wow-pointer-y)) scale(1.045);
+  transition: transform 1200ms cubic-bezier(0.22, 1, 0.36, 1), filter 760ms ease;
+}
+
+.wow-page .hero-slide.is-active img,
+.wow-page .hero-slide.is-active video {
+  filter: saturate(1) contrast(1);
+  transform: translate(var(--wow-pointer-x), var(--wow-pointer-y)) scale(var(--wow-hero-scale));
+}
+
+.wow-page .hero-slide--broadcast video {
+  object-position: center 42%;
+}
+
+.wow-page .slide-copy {
+  pointer-events: none;
+}
+
+.primary-button {
+  min-height: 48px;
+  width: fit-content;
+  margin-top: var(--zi-space-20);
+  padding: 0 var(--zi-space-20);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zi-space-20);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: var(--wow-radius-pill);
+  color: var(--blue-deep);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 45, 70, 0.16);
+  font-size: var(--zi-font-size-14);
+  line-height: var(--zi-line-20);
+  font-weight: var(--zi-weight-600);
+  text-decoration: none;
+  text-shadow: none;
+  pointer-events: auto;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.primary-button:hover:where(html[data-hover-enabled] *),
+.primary-button:focus-visible {
+  color: #ffffff;
+  background: var(--blue);
+  transform: translateY(-2px);
+}
+
+.primary-button span {
+  font-size: var(--zi-font-size-20);
+  line-height: var(--zi-leading-1);
+}
+
+.wow-page .hero-copy.is-updating {
+  animation: heroCopyIn 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.wow-page .section {
+  padding-top: 56px;
+  padding-bottom: 56px;
+  scroll-margin-top: calc(var(--wow-header-offset) + var(--wow-header-height) + 24px);
+}
+
+.wow-page > .newsletter,
+.wow-page .wow-shell > .newsletter {
+  min-height: 260px;
+  padding-top: 44px;
+  padding-bottom: 44px;
+}
+
+.wow-page .slideshow {
+  min-height: 560px;
+  padding-top: 52px;
+  padding-bottom: 52px;
+}
+
+.wow-page .footer {
+  padding-top: var(--zi-space-40);
+  padding-bottom: var(--zi-space-40);
+}
+
+@media (max-width: 1100px) and (min-width: 768px) {
+  .wow-page .header {
+    grid-template-columns: 132px minmax(260px, 1fr) minmax(190px, 250px) auto;
+    column-gap: var(--zi-space-15);
+  }
+
+  .special-button {
+    padding: 0 var(--zi-space-12);
+    gap: var(--zi-space-8);
+    font-size: var(--zi-font-size-12);
+  }
+
+  .special-projects {
+    gap: var(--zi-space-8);
+  }
+
+  .special-projects a {
+    padding: 0 var(--zi-space-12);
+    font-size: var(--zi-font-size-12);
+  }
+}
+
+@media (max-width: 767px) {
+  .wow-page:has(.header.is-specials-open) {
+    --wow-header-extra-height: 0px;
+  }
+
+  .wow-page .header,
+  .wow-page .header.is-specials-open {
+    overflow: visible;
+  }
+
+  .special-projects,
+  .special-button {
+    display: none;
+  }
+
+  .wow-page .burger-menu.is-open {
+    overflow-y: auto;
+  }
+
+  .wow-page .slide-copy {
+    bottom: 122px;
+  }
+
+  .primary-button {
+    min-height: 44px;
+    margin: 18px auto 0;
+    padding: 0 var(--zi-space-20);
+    gap: var(--zi-space-20);
+    font-size: var(--zi-font-size-13);
+  }
+
+  .wow-page .section,
+  .wow-page #week,
+  .wow-page #projects,
+  .wow-page #infographics {
+    padding-top: var(--zi-space-40);
+    padding-bottom: var(--zi-space-40);
+  }
+
+  .wow-page > .newsletter,
+  .wow-page .wow-shell > .newsletter {
+    min-height: 0;
+    padding-top: var(--zi-space-30);
+    padding-bottom: var(--zi-space-30);
+  }
+
+  .wow-page .slideshow {
+    padding-top: var(--zi-space-40);
+    padding-bottom: var(--zi-space-40);
+  }
+
+  .wow-page .footer {
+    padding-top: var(--zi-space-30);
+    padding-bottom: var(--zi-space-30);
+  }
+
+  .wow-page .slide-copy {
+    bottom: 96px;
+  }
+
+  .primary-button {
+    border-radius: var(--wow-radius-control-compact);
+  }
+}
+
+/* Final desktop geometry: six destinations, compact search and centered content. */
+@media (min-width: 768px) {
+  .wow-page {
+    --wow-content: 1120px;
+    --wow-content-width: min(var(--wow-content), calc(100vw - (var(--wow-gutter) * 2)));
+  }
+
+  .wow-page .header,
+  .wow-page .header.is-scrolled {
+    grid-template-columns: 154px minmax(0, 1fr) auto 46px;
+    column-gap: var(--zi-space-20);
+    align-items: center;
+  }
+
+  .wow-page .header.is-scrolled {
+    width: var(--wow-content-width);
+  }
+
+  .wow-page .header > .logo {
+    grid-column: 1;
+  }
+
+  .wow-page .header > .special-button {
+    grid-column: 3;
+  }
+
+  .wow-page .header > .search-input {
+    grid-column: 4;
+  }
+
+  .wow-page .search-input {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    justify-self: end;
+    width: 46px;
+    max-width: none;
+    height: 46px;
+    flex: none;
+    z-index: 4;
+  }
+
+  .wow-page .search-input label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    overflow: hidden;
+    border-radius: var(--wow-radius-round);
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 8px 22px rgba(0, 59, 93, 0.08);
+    cursor: text;
+    transition: width 260ms cubic-bezier(0.22, 1, 0.36, 1), border-radius 220ms ease, padding 220ms ease, gap 220ms ease;
+  }
+
+  .wow-page .search-input__icon {
+    flex: 0 0 auto;
+  }
+
+  .wow-page .search-input input {
+    width: 0;
+    min-width: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: width 240ms cubic-bezier(0.22, 1, 0.36, 1), opacity 140ms ease;
+  }
+
+  .wow-page .search-input:focus-within label {
+    width: min(280px, calc(100vw - 48px));
+    padding: 0 var(--zi-space-15);
+    justify-content: flex-start;
+    gap: var(--zi-space-10);
+    border-radius: var(--wow-radius-control);
+  }
+
+  .wow-page .search-input:focus-within input {
+    width: 214px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .wow-page .slide-copy {
+    bottom: clamp(64px, 8vh, 92px);
+    left: clamp(48px, 5vw, 80px);
+    width: min(680px, calc(100% - 96px));
+  }
+
+  .primary-button {
+    min-height: 50px;
+    padding: 0 var(--zi-space-20);
+    border-radius: var(--wow-radius-control-compact);
+  }
+
+  .wow-page .section,
+  .wow-page .slideshow,
+  .wow-page .newsletter,
+  .wow-page .footer,
+  .wow-page #week {
+    width: var(--wow-content-width);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .wow-page #week .section-heading {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .wow-page .header,
+  .wow-page .header.is-scrolled {
+    grid-template-columns: 132px minmax(0, 1fr) auto 42px;
+    column-gap: var(--zi-space-12);
+  }
+
+  .special-button {
+    height: 38px;
+    padding: 0 var(--zi-space-12);
+    gap: var(--zi-space-8);
+    font-size: var(--zi-font-size-12);
+  }
+
+  .wow-page .search-input,
+  .wow-page .search-input label {
+    width: 42px;
+    height: 42px;
+  }
+
+}
+
+/* Post-hero desktop shell: the main-version sidebar enters after the pinned hero. */
+.wow-after-hero-shell {
+  order: 3;
+  width: 100%;
+  min-width: 0;
+}
+
+.wow-after-hero-content {
+  min-width: 0;
+}
+
+.sidebar {
+  display: none;
+}
+
+.rubric-nav__icon {
+  width: 48px;
+  height: 48px;
+  display: block;
+  flex: 0 0 48px;
+  background-image: var(--rubric-icon-image, url("./assets/local/navigation-3d-v2/food.png"));
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+@media (min-width: 768px) {
+  .wow-page {
+    --wow-sidebar-width: 220px;
+    --wow-sidebar-gap: var(--zi-space-20);
+    --wow-after-shell-width: min(
+      calc(100vw - (var(--wow-gutter) * 2)),
+      calc(
+        (var(--wow-sidebar-width) * 2) +
+        (var(--wow-sidebar-gap) * 2) +
+        var(--wow-content)
+      )
+    );
+    --wow-after-content-width: calc(
+      var(--wow-after-shell-width) -
+      (var(--wow-sidebar-width) * 2) -
+      (var(--wow-sidebar-gap) * 2)
+    );
+
+  }
+
+  .wow-after-hero-shell {
+    width: var(--wow-after-shell-width);
+    margin-right: auto;
+    margin-left: auto;
+    display: grid;
+    grid-template-columns:
+      var(--wow-sidebar-width)
+      minmax(0, var(--wow-after-content-width))
+      var(--wow-sidebar-width);
+    gap: var(--wow-sidebar-gap);
+    align-items: stretch;
+  }
+
+  .wow-page .header.is-after-hero {
+    width: var(--wow-after-shell-width);
+  }
+
+  .wow-after-hero-content {
+    grid-column: 2;
+    width: 100%;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: calc(var(--wow-header-offset) + var(--wow-header-active-height) + 24px);
+    grid-column: 1;
+    align-self: start;
+    width: var(--wow-sidebar-width);
+    max-height: calc(100vh - var(--wow-header-offset) - var(--wow-header-active-height) - 48px);
+    padding: var(--zi-space-8) 0;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: var(--sidebar-scroll-overflow, auto);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-18px);
+    transition: top 280ms ease, opacity 320ms ease, transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+    scrollbar-width: none;
+  }
+
+  .sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .wow-after-hero-shell.is-sidebar-visible .sidebar {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .rubric-nav-shell {
+    width: 100%;
+  }
+
+  .rubric-nav {
+    width: 100%;
+    display: grid;
+    gap: var(--zi-space-4);
+  }
+
+  .navigation-item {
+    width: 100%;
+    min-height: 58px;
+    padding: var(--zi-space-5) var(--zi-space-10) var(--zi-space-5) var(--zi-space-5);
+    display: flex;
+    align-items: center;
+    gap: var(--zi-space-8);
+    border: 1px solid transparent;
+    border-radius: var(--wow-radius-md);
+    color: var(--ink);
+    font-size: var(--zi-font-size-13);
+    line-height: var(--zi-line-16);
+    font-weight: var(--zi-weight-500);
+    text-decoration: none;
+    transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
+  }
+
+  .navigation-item:hover:where(html[data-hover-enabled] *),
+  .navigation-item:focus-visible {
+    color: var(--blue-deep);
+    border-color: rgba(19, 125, 184, 0.12);
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .navigation-item:focus-visible {
+    outline: 3px solid rgba(19, 125, 184, 0.24);
+    outline-offset: 2px;
+  }
+
+  .wow-after-hero-content > .section,
+  .wow-after-hero-content > .slideshow,
+  .wow-after-hero-content > .newsletter {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .wow-page .wow-after-hero-content > #week {
+    width: 100%;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) and (min-width: 1280px) {
+  .sidebar {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+}
+
+/* Main-version desktop chrome: full header, left navigation and right ad rail. */
+.advertisement-rail {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .wow-page {
+    --wow-menu-column: 290px;
+    --wow-content-offset: clamp(var(--wow-space-6), calc(15.936vw - 179.98px), 144px);
+    --wow-ad-gap: var(--wow-content-offset);
+    --wow-ad-width: 300px;
+    --wow-right-field: clamp(var(--wow-space-6), calc(19.124vw - 220.79px), 168px);
+    --wow-cluster-max-width: 1431px;
+    --wow-cluster-left: max(
+      calc(var(--wow-menu-column) + var(--wow-content-offset)),
+      calc((100% - var(--wow-cluster-max-width)) / 2)
+    );
+    --wow-cluster-width: min(
+      calc(100% - var(--wow-cluster-left) - var(--wow-right-field)),
+      var(--wow-cluster-max-width)
+    );
+    --wow-header-top: var(--wow-space-4);
+    --wow-header-inline-offset: var(--wow-space-6);
+    --wow-header-action-inset: 21.3507px;
+    --wow-desktop-header-height: 96px;
+    --wow-header-height: var(--wow-desktop-header-height);
+    --wow-header-expanded-height: var(--wow-desktop-header-height);
+    --wow-header-active-height: var(--wow-desktop-header-height);
+    --wow-header-offset: 0px;
+  }
+
+  .wow-page .header,
+  .wow-page .header.is-scrolled,
+  .wow-page .header.is-after-hero {
+    position: fixed;
+    top: var(--wow-header-top);
+    right: var(--wow-header-inline-offset);
+    left: var(--wow-header-inline-offset);
+    width: auto;
+    height: var(--wow-desktop-header-height);
+    padding: var(--wow-inset-surface);
+    display: block;
+    overflow: hidden;
+    border: 1px solid rgba(227, 239, 246, 0.78);
+    border-radius: var(--wow-radius-header);
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: 0 12px 36px rgba(0, 59, 93, 0.12);
+    backdrop-filter: blur(20px) saturate(145%);
+    -webkit-backdrop-filter: blur(20px) saturate(145%);
+    transform: none;
+    transition: height 240ms ease, background 200ms ease, box-shadow 200ms ease;
+  }
+
+  .wow-page .header.is-scrolled {
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 14px 40px rgba(0, 59, 93, 0.15);
+  }
+
+  .wow-page .header.is-specials-open {
+    height: calc(var(--wow-desktop-header-height) + var(--wow-header-extra-height));
+  }
+
+  .wow-page .header > .logo {
+    position: absolute;
+    top: 21.3507px;
+    left: var(--header-inline-inset, var(--wow-inset-surface));
+    width: 144px;
+    min-width: 144px;
+    height: 53.2987px;
+    margin: 0;
+  }
+
+  .wow-page .header > .search-input {
+    position: absolute;
+    top: 21.3507px;
+    left: calc(var(--wow-cluster-left) - var(--wow-header-inline-offset));
+    width: calc(var(--wow-cluster-width) - 184px);
+    height: 53.2987px;
+    margin: 0;
+    display: block;
+  }
+
+  .wow-page .header > .search-input label {
+    position: static;
+    width: 100%;
+    height: 100%;
+    padding: var(--wow-space-4);
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--wow-space-3);
+    overflow: visible;
+    border: 0;
+    border-radius: var(--wow-radius-control);
+    background: rgba(240, 249, 255, 0.94);
+    box-shadow: none;
+  }
+
+  .wow-page .header > .search-input input {
+    width: 100%;
+    min-width: 0;
+    opacity: 1;
+    pointer-events: auto;
+    color: var(--blue);
+    font-size: var(--zi-font-size-16);
+    line-height: var(--zi-line-20);
+    font-weight: var(--zi-weight-500);
+  }
+
+  .wow-page .header > .search-input input::placeholder {
+    color: var(--blue);
+    opacity: 1;
+  }
+
+  .wow-page .header > .special-button {
+    position: absolute;
+    top: 28px;
+    right: var(--wow-header-action-inset);
+    width: 168px;
+    height: 40px;
+    justify-content: center;
+    border-radius: var(--wow-radius-control);
+  }
+
+  .wow-page .header > .special-projects {
+    position: absolute;
+    top: var(--wow-desktop-header-height);
+    right: calc(var(--wow-right-field) - var(--wow-header-inline-offset));
+    left: calc(var(--wow-cluster-left) - var(--wow-header-inline-offset));
+    width: auto;
+    height: var(--wow-header-extra-height);
+    padding: var(--zi-space-12) 0;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+  }
+
+  .wow-page .header > .special-projects::-webkit-scrollbar {
+    display: none;
+  }
+
+  .wow-page .header.is-specials-open > .special-projects {
+    height: var(--wow-header-extra-height);
+  }
+
+}
+
+@media (min-width: 1280px) {
+  .wow-page {
+
+    --wow-after-content-width: calc(
+      var(--wow-cluster-width) - var(--wow-ad-gap) - var(--wow-ad-width)
+    );
+  }
+
+  .wow-after-hero-shell {
+    width: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-columns:
+      var(--wow-cluster-left)
+      minmax(0, var(--wow-after-content-width))
+      var(--wow-ad-gap)
+      var(--wow-ad-width)
+      minmax(0, 1fr);
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .sidebar {
+    top: calc(var(--wow-header-top) + var(--wow-desktop-header-height) + 24px);
+    grid-column: 1;
+    width: var(--wow-menu-column);
+    max-height: calc(100vh - var(--wow-header-top) - var(--wow-desktop-header-height) - 48px);
+    padding: var(--zi-space-8) var(--zi-space-20);
+    overflow: hidden;
+  }
+
+  .wow-after-hero-content {
+    grid-column: 2;
+    width: 100%;
+  }
+
+  .wow-after-hero-content > .section,
+  .wow-after-hero-content > .slideshow,
+  .wow-after-hero-content > .footer,
+  .wow-page .wow-after-hero-content > #week {
+    width: 100%;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .advertisement-rail {
+    position: sticky;
+    top: calc(var(--wow-header-top) + var(--wow-desktop-header-height) + 24px);
+    grid-column: 4;
+    align-self: start;
+    width: var(--wow-ad-width);
+    height: min(70vh, 440px);
+    display: block;
+  }
+
+  .advertisement-rail__stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--zi-color-border-default-subtle);
+    border-radius: var(--wow-radius-header);
+    background: #ffffff;
+    box-shadow: 0 16px 42px rgba(0, 59, 93, 0.1);
+  }
+
+  .advertisement-rail__label {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    z-index: 3;
+    color: #ffffff;
+    font-size: var(--zi-font-size-12);
+    line-height: var(--zi-line-16);
+    font-weight: var(--zi-weight-600);
+    text-transform: uppercase;
+    text-shadow: 0 1px 4px rgba(0, 45, 70, 0.5);
+  }
+
+  .wow-desktop-ad-creative {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 520ms ease;
+  }
+
+  .wow-desktop-ad-creative.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .wow-desktop-ad-creative img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .wow-desktop-ad-creative video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (min-width: 1280px) {
+  .wow-desktop-ad-creative {
+    transition: none;
+  }
+}
+
+/* Below the immersive hero, reuse the production home-page component rhythm. */
+@media (min-width: 1280px) {
+
+  .wow-after-hero-content [data-wow-reveal],
+  .wow-after-hero-content [data-wow-reveal].is-wow-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .wow-after-hero-content > .section {
+    min-height: 0;
+    padding: var(--wow-section-space) 0;
+  }
+
+  .wow-after-hero-content > #infographics {
+    padding-bottom: var(--wow-space-6);
+  }
+
+  .wow-after-hero-content .section-heading {
+    max-width: none;
+    margin-bottom: var(--wow-space-6);
+  }
+
+  .wow-after-hero-content .section-heading h2,
+  .wow-after-hero-content .newsletter h2,
+  .wow-after-hero-content .newsletter h3 {
+    font-size: var(--zi-font-size-28);
+    line-height: var(--zi-line-34);
+    font-weight: var(--zi-weight-600);
+
+    text-wrap: wrap;
+  }
+
+  .wow-after-hero-content .section-heading p,
+  .wow-after-hero-content .newsletter p {
+    margin-top: var(--zi-space-4);
+    font-size: var(--zi-font-size-16);
+    line-height: var(--zi-line-24);
+    font-weight: var(--zi-weight-400);
+
+  }
+
+  .wow-after-hero-content > #projects {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    overflow: visible;
+  }
+
+  .wow-after-hero-content > #encyclopedia {
+    display: block;
+  }
+
+  .wow-after-hero-content > #encyclopedia .section-heading {
+    position: static;
+  }
+
+  .wow-after-hero-content > .slideshow {
+    height: auto;
+    min-height: 0;
+    padding: var(--zi-space-40) 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 48px auto 44px;
+    column-gap: 0;
+    row-gap: var(--zi-space-15);
+  }
+
+  .wow-after-hero-content .slideshow p {
+    width: 100%;
+    max-width: 760px;
+    height: auto;
+    margin-top: var(--zi-space-8);
+    font-size: var(--zi-font-size-16);
+    line-height: var(--zi-line-24);
+    font-weight: var(--zi-weight-400);
+
+  }
+
+  .wow-after-hero-content .topic-more {
+    grid-column: 1;
+    grid-row: 4;
+    width: 100%;
+    max-width: none;
+    height: 40px;
+    padding: var(--zi-space-12) var(--zi-space-15);
+    font-size: var(--zi-font-size-16);
+    line-height: var(--zi-line-20);
+    font-weight: var(--zi-weight-500);
+  }
+
+  .wow-after-hero-content > #infographics {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .wow-after-hero-content > .footer {
+    min-height: 0;
+    margin-top: var(--zi-space-40);
+    padding: var(--zi-space-20) var(--zi-space-10);
+    display: flex;
+    flex-direction: column;
+    gap: var(--zi-space-10);
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .wow-after-hero-content .footer .footer-content {
+    padding: var(--zi-space-20) 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 52.5%);
+    gap: var(--zi-space-10);
+    align-items: stretch;
+  }
+
+  .wow-after-hero-content .footer-note,
+  .wow-after-hero-content .footer-nav a {
+    font-size: var(--zi-font-size-14);
+    line-height: var(--zi-line-20);
+    font-weight: var(--zi-weight-400);
+  }
+
+  .wow-after-hero-content .footer .newsletter-input {
+    height: 44px;
+    padding: var(--zi-space-4);
+  }
+
+  .wow-after-hero-content .footer .newsletter-input input {
+    height: 34px;
+  }
+
+  .wow-after-hero-content .footer .newsletter-input button {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .wow-after-hero-content .footer .newsletter {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+  }
+}
+
+/* Weekly materials switch as two-card pages instead of moving a clipped rail. */
+
+/* Keep the immersive hero controls, copy and timeout progress on one grid. */
+@media (min-width: 768px) {
+  .wow-page .hero {
+    --wow-hero-grid-x: clamp(20px, 3vw, 48px);
+  }
+
+  .wow-page .slide-copy {
+    left: var(--wow-hero-grid-x);
+    width: min(680px, calc(100% - (var(--wow-hero-grid-x) * 2)));
+  }
+
+  .wow-page .hero-timeout {
+    top: calc(var(--wow-header-top) + var(--wow-desktop-header-height) + 24px);
+    right: var(--wow-hero-grid-x);
+    left: var(--wow-hero-grid-x);
+    z-index: 9;
+  }
+}
+
+/* Search is available for typing immediately, independently of page scrolling. */
+@media (min-width: 1280px) {
+  .wow-page .header > .search-input label {
+    padding: var(--zi-space-15);
+    justify-content: flex-start;
+    gap: var(--zi-space-12);
+    border: 1px solid var(--blue);
+    background: #ffffff;
+    box-shadow: none;
+    cursor: text;
+  }
+
+  .wow-page .header > .search-input .search-input__icon {
+    width: 20px;
+    height: 20px;
+    transform: translateY(-0.5px);
+  }
+
+  .wow-page .header > .search-input input {
+    width: 100%;
+    flex: 1 1 auto;
+    opacity: 1;
+    pointer-events: auto;
+    transition: none;
+  }
+
+  .wow-page .header > .special-button {
+    top: 21.3507px;
+    height: 53.2987px;
+  }
+}
+
+/* Figma card anatomy: glass type badge, eyebrow, title and hover-only action. */
+
+/* Desktop special-project catalog: a fixed three-column popover. */
+@media (min-width: 768px) {
+  .wow-page:has(.header.is-specials-open) {
+    --wow-header-extra-height: 0px;
+  }
+
+  .wow-page .header.is-specials-open {
+    height: var(--wow-desktop-header-height);
+  }
+
+  .wow-page .header + .special-projects {
+    position: fixed;
+    top: calc(var(--wow-header-top) + var(--wow-desktop-header-height) + var(--wow-space-2));
+    right: var(--wow-header-inline-offset);
+    left: var(--wow-header-inline-offset);
+    z-index: 102;
+    width: auto;
+    height: min(
+      620px,
+      calc(100svh - var(--wow-header-top) - var(--wow-desktop-header-height) - var(--wow-space-8))
+    );
+    padding: var(--wow-space-5) var(--wow-space-6) var(--wow-space-6);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 0;
+    border: 1px solid rgba(208, 32, 85, 0.72);
+    border-radius: var(--wow-radius-header);
+    background: #ffffff;
+    box-shadow: 0 22px 64px rgba(0, 59, 93, 0.18);
+    backdrop-filter: blur(22px) saturate(145%);
+    -webkit-backdrop-filter: blur(22px) saturate(145%);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(19, 125, 184, 0.32) transparent;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px) scale(0.98);
+    transform-origin: top right;
+    transition:
+      opacity 180ms ease,
+      transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 260ms;
+  }
+
+  .wow-page .header.is-specials-open + .special-projects {
+    height: min(
+      620px,
+      calc(100svh - var(--wow-header-top) - var(--wow-desktop-header-height) - var(--wow-space-8))
+    );
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+    transition-delay: 0s;
+  }
+
+  .wow-page .special-projects__column {
+    min-width: 0;
+    padding: 0 var(--wow-space-6);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--wow-space-1);
+  }
+
+  .wow-page .special-projects__column:first-child {
+    padding-left: 0;
+  }
+
+  .wow-page .special-projects__column:last-child {
+    padding-right: 0;
+  }
+
+  .wow-page .special-projects__column + .special-projects__column {
+    border-left: 1px solid rgba(19, 125, 184, 0.24);
+  }
+
+  .wow-page .special-projects__column > a {
+    width: 100%;
+    min-height: 36px;
+    padding: var(--wow-space-2) var(--wow-space-3);
+    display: flex;
+    align-items: center;
+    gap: var(--wow-space-2);
+    flex: 0 0 auto;
+    border: 0;
+    border-radius: var(--wow-radius-xs);
+    color: var(--blue-deep);
+    background: transparent;
+    font-size: var(--zi-font-size-15);
+    line-height: var(--zi-line-20);
+    font-weight: var(--zi-weight-500);
+    white-space: normal;
+    text-decoration: none;
+    transition: color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+  }
+
+  .wow-page .special-projects__column > a:hover:where(html[data-hover-enabled] *),
+  .wow-page .special-projects__column > a:focus-visible {
+    color: var(--blue);
+    background: rgba(240, 249, 255, 0.88);
+  }
+
+  .wow-page .special-projects__column > a.special-projects__accent {
+    color: var(--pink);
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .wow-page .special-projects__column > a.special-projects__accent:hover:where(html[data-hover-enabled] *),
+  .wow-page .special-projects__column > a.special-projects__accent:focus-visible {
+    color: #b51648;
+    background: rgba(208, 32, 85, 0.1);
+    box-shadow: none;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) and (min-width: 768px) {
+  .wow-page .header + .special-projects {
+    transform: none;
+    transition: opacity 120ms linear, visibility 0s linear 120ms;
+  }
+
+  .wow-page .header.is-specials-open + .special-projects {
+    transition-delay: 0s;
+  }
+}
+
+@media (min-width: 1280px) {
+
+  .wow-page .header > .special-button {
+    right: auto;
+    left: var(--header-specials-left);
+    width: var(--header-tab-width);
+    padding: 0 var(--wow-space-6);
+    justify-content: center;
+    border-color: transparent;
+    color: #ffffff;
+    background: var(--pink);
+  }
+
+  .wow-page .header > .special-button:hover:where(html[data-hover-enabled] *),
+  .wow-page .header > .special-button:focus-visible {
+    color: #ffffff;
+    border-color: transparent;
+    background: #b91849;
+  }
+
+  .wow-page .header.is-specials-open > .special-button,
+  .wow-page .header.is-specials-open > .special-button:hover:where(html[data-hover-enabled] *),
+  .wow-page .header.is-specials-open > .special-button:focus-visible {
+    color: var(--pink);
+    border-color: var(--pink);
+    background: #ffffff;
+  }
+
+  .wow-page .header > .search-input {
+    right: var(--header-search-right);
+  }
+
+  .wow-page .header > .search-input {
+    left: var(--header-search-left);
+    width: calc(
+      100% - var(--header-search-left) - var(--header-search-right)
+    );
+  }
+}
+
+/* Editorial home shell: persistent topic rail, compact lead module and ad inventory. */
+html.is-opening-ad-open {
+  scrollbar-gutter: auto;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.wow-page.editorial-home {
+  --editorial-shell-max: var(--zi-layout-max-width);
+  --editorial-sidebar-width: var(--zi-layout-menu-width);
+  --editorial-ad-width: var(--zi-layout-ad-width);
+  --editorial-column-gap: var(--zi-layout-column-gap);
+  --editorial-row-gap: var(--wow-space-6);
+  --editorial-outer-gutter: var(--wow-space-12);
+  padding: 0;
+}
+
+.wow-page.editorial-home .advertisement-banner {
+  order: 0;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: #ffffff;
+}
+
+.wow-page.editorial-home .advertisement-banner__label {
+  top: var(--wow-space-3);
+  bottom: auto;
+  left: var(--wow-space-4);
+  display: block;
+  color: #456a80;
+  text-shadow: none;
+}
+
+.wow-page.editorial-home .advertisement-banner__creative {
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--ad-aspect-ratio, 970 / 250);
+  min-height: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.wow-page.editorial-home .advertisement-banner__creative::after {
+  display: none;
+}
+
+.wow-page.editorial-home .advertisement-banner__creative > video {
+  width: 100%;
+  height: auto;
+  max-width: none;
+  aspect-ratio: 970 / 250;
+  display: block;
+  object-fit: contain;
+}
+
+.wow-page.editorial-home .wow-after-hero-shell {
+  order: 2;
+  width: min(calc(100% - (var(--editorial-outer-gutter) * 2)), var(--editorial-shell-max));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--editorial-ad-width);
+  gap: var(--editorial-row-gap) var(--editorial-column-gap);
+  align-items: stretch;
+}
+
+.wow-page.editorial-home .wow-after-hero-content {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+}
+
+.wow-page.editorial-home .sidebar {
+  position: sticky;
+  top: calc(var(--wow-header-top) + var(--wow-desktop-header-height));
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  width: var(--editorial-sidebar-width);
+  max-height: calc(100dvh - var(--wow-desktop-header-height) - (var(--wow-space-6) * 2) + var(--wow-space-4));
+  /* The initial gap scrolls with the items; clipping begins at the header edge. */
+  margin-top: calc(-1 * var(--wow-space-4));
+  padding: var(--wow-space-4) 0 var(--wow-space-2);
+  display: block;
+  overflow-x: hidden;
+  overflow-y: var(--sidebar-scroll-overflow, auto);
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+
+.wow-page.editorial-home .rubric-nav {
+  padding-right: var(--wow-space-1);
+}
+
+.wow-page.editorial-home .hero {
+  position: relative;
+  order: initial;
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: var(--wow-space-4) 0;
+  overflow: visible;
+  background: transparent;
+}
+
+.wow-page.editorial-home .hero-frame {
+  position: relative;
+  top: auto;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  padding: var(--wow-space-4);
+  overflow: hidden;
+  border: 1px solid var(--zi-color-border-default-subtle);
+  border-radius: var(--wow-radius-lg);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: var(--zi-shadow-card);
+}
+
+.hero-preview-shell {
+  position: relative;
+  margin-bottom: var(--wow-space-5);
+}
+
+.hero-preview-tabs {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 24px) / 4);
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-behavior: auto;
+  gap: var(--wow-space-2);
+}
+
+.hero-preview-tabs::-webkit-scrollbar { display: none; }
+.hero-preview-edge {
+  opacity: 0;
+  pointer-events: none;
+}
+.hero-arrow.hero-preview-edge[hidden] { display: none; }
+.hero-preview-edge--previous { left: var(--wow-space-2); }
+.hero-preview-edge--next { right: var(--wow-space-2); }
+.hero-preview-edge:focus-visible { opacity: 1; pointer-events: auto; outline: 2px solid var(--blue); outline-offset: 2px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-preview-shell:hover:where(html[data-hover-enabled] *) .hero-preview-edge { opacity: 1; pointer-events: auto; }
+}
+
+.hero-preview {
+  --hero-tab-image: none;
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+  padding: var(--wow-space-2);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: var(--zi-space-2);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.66);
+  border-radius: var(--wow-radius-sm);
+  color: #ffffff;
+  background: #315b70 var(--hero-tab-image) center / cover no-repeat;
+  text-align: left;
+  cursor: pointer;
+  isolation: isolate;
+}
+
+.hero-preview::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(0, 45, 70, 0.04), rgba(0, 45, 70, 0.78));
+  content: "";
+  opacity: 1;
+  transition: opacity 180ms ease;
+}
+
+.hero-preview::after {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+  transition: background-color 180ms ease;
+}
+
+.hero-preview span,
+.hero-preview small {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hero-preview span {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: normal;
+  font-size: var(--zi-font-size-13);
+  line-height: var(--zi-line-16);
+  font-weight: var(--zi-weight-600);
+}
+
+.hero-preview small {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: var(--zi-font-size-12);
+  line-height: var(--zi-line-16);
+  font-weight: var(--zi-weight-500);
+}
+
+.hero-preview:hover:where(html[data-hover-enabled] *)::before,
+.hero-preview:focus-visible::before {
+  opacity: 0.76;
+}
+
+.hero-preview.is-active::after {
+  background-color: transparent;
+}
+
+.hero-preview:focus-visible {
+  outline: 3px solid rgba(19, 125, 184, 0.28);
+  outline-offset: 2px;
+}
+
+.wow-page.editorial-home .wow-hero-mask {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  overflow: hidden;
+  border-radius: var(--wow-radius-md);
+  background: #dcecf5;
+}
+
+.wow-page.editorial-home .hero-slider {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wow-page.editorial-home .hero-slide img,
+.wow-page.editorial-home .hero-slide video,
+.wow-page.editorial-home .hero-slide.is-active img,
+.wow-page.editorial-home .hero-slide.is-active video {
+  transform: scale(1.01);
+}
+
+.wow-page.editorial-home .slide-copy {
+  text-align: left;
+  right: var(--wow-space-6);
+  bottom: var(--wow-space-6);
+  left: var(--wow-space-6);
+  width: min(620px, calc(100% - (var(--wow-space-6) * 2)));
+}
+
+.wow-page.editorial-home .slide-copy h1 {
+  margin-bottom: var(--wow-space-2);
+  font-size: var(--zi-font-size-24);
+  line-height: var(--zi-leading-1-1);
+}
+
+.wow-page.editorial-home .slide-copy .copy-line {
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 768px) {
+  .wow-page.editorial-home .wow-hero-mask { min-height: 0; }
+
+  .wow-page.editorial-home .slide-copy {
+    right: var(--wow-space-4);
+    left: var(--wow-space-4);
+    width: calc(100% - (var(--wow-space-4) * 2));
+  }
+}
+
+.wow-page.editorial-home .slide-copy p {
+  font-size: var(--zi-font-size-15);
+  line-height: var(--zi-line-20);
+}
+
+.wow-page.editorial-home .primary-button {
+  min-height: 42px;
+  margin-top: var(--wow-space-4);
+  padding: 0 var(--wow-space-4);
+  border-radius: var(--wow-radius-control-compact);
+}
+
+.wow-page.editorial-home .hero-arrow {
+  top: 50%;
+  width: 44px;
+  height: 44px;
+}
+
+.wow-page.editorial-home .hero-timeout {
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 8;
+  height: 3px;
+  border-radius: 0;
+}
+
+.wow-page.editorial-home .hero-progress {
+  display: none;
+}
+
+.wow-page.editorial-home .wow-after-hero-content > .section,
+.wow-page.editorial-home .home-feed > .section {
+  width: 100%;
+  margin: 0;
+  padding: var(--wow-space-4) 0;
+}
+
+.wow-page.editorial-home .advertisement-rail {
+  position: sticky;
+  top: calc(var(--wow-header-top) + var(--wow-desktop-header-height) + var(--wow-space-4));
+  grid-column: 3;
+  align-self: start;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.wow-page.editorial-home .advertisement-rail__stage {
+  height: auto;
+  aspect-ratio: 300 / 250;
+  max-height: calc(100dvh - var(--wow-header-height) - var(--wow-space-8));
+  border-radius: var(--wow-radius-md);
+  background: #ffffff;
+  box-shadow: none;
+  border: 0;
+}
+
+.wow-page.editorial-home .wow-desktop-ad-creative video {
+  object-fit: contain;
+}
+
+.wow-page .mixed-material-feed__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--wow-space-4);
+}
+
+.opening-ad {
+  position: fixed;
+  inset: 0;
+  z-index: 140;
+  display: grid;
+  place-items: stretch;
+  background: #000000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 180ms ease, visibility 0s linear 220ms;
+}
+
+.opening-ad.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.opening-ad__scrim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: rgba(0, 28, 45, 0.58);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.opening-advertisement {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: #000000;
+  box-shadow: none;
+}
+
+body .opening-ad__media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #000000;
+}
+
+.opening-ad__media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.opening-ad__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,.42), transparent 24%, transparent 45%, rgba(0,0,0,.68));
+}
+
+.opening-ad__copy {
+  position: absolute;
+  left: var(--zi-layout-header-inset);
+  right: var(--zi-layout-header-inset);
+  bottom: clamp(28px, 6vh, 72px);
+  z-index: 2;
+  color: #fff;
+  pointer-events: none;
+}
+
+.opening-ad__brand { font-size: var(--zi-font-size-16); letter-spacing: var(--zi-tracking-normal); font-weight: var(--zi-weight-600); }
+.opening-ad__copy h2 { margin: 12px 0; font-size: var(--zi-fluid-hero-wide); line-height: var(--zi-leading-1); color: #fff; }
+.opening-ad__copy p { margin: 0 0 24px; font-size: var(--zi-fluid-lead); color: #fff; }
+.opening-ad__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  color: #111;
+  background: #fff;
+  font-weight: var(--zi-weight-600);
+  text-decoration: none;
+  pointer-events: auto;
+}
+.opening-ad__cta:hover:where(html[data-hover-enabled] *) { background: #eaf2f6; }
+.opening-ad__cta:focus-visible, .opening-ad__close:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+
+@media (orientation: portrait) {
+  .opening-ad__copy { bottom: max(32px, env(safe-area-inset-bottom)); }
+  .opening-ad__copy h2 { font-size: var(--zi-fluid-hero-compact); }
+  .opening-ad__copy p { max-width: 26ch; }
+  .opening-ad__cta { width: 100%; }
+}
+
+.opening-ad__close {
+  position: absolute;
+  top: var(--wow-space-3);
+  right: var(--wow-space-3);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 0;
+  color: #fff;
+  background: transparent;
+  box-shadow: none;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+  font-size: var(--zi-font-size-24);
+  line-height: var(--zi-leading-1);
+  cursor: pointer;
+}
+
+
+@media (min-width: 1280px) {
+  .wow-page.editorial-home .wow-after-hero-shell {
+    width: var(--zi-layout-content-width);
+    margin-left: var(--zi-layout-content-left);
+    margin-right: auto;
+  }
+
+  .wow-page.editorial-home .sidebar {
+    margin-left: calc(var(--zi-layout-menu-left) - var(--zi-layout-content-left));
+  }
+}
+
+@media (max-width: 1279px) {
+  .wow-page.editorial-home {
+    --editorial-outer-gutter: var(--wow-space-6);
+  }
+
+  .wow-page.editorial-home .wow-after-hero-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .wow-page.editorial-home .wow-after-hero-content {
+    grid-column: 1;
+  }
+
+  .wow-page.editorial-home .hero { grid-column: 1; }
+
+  .wow-page.editorial-home .sidebar,
+  .wow-page.editorial-home .advertisement-rail {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .wow-page.editorial-home .advertisement-banner {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .wow-page.editorial-home .advertisement-banner__label {
+    top: var(--wow-space-2);
+    right: var(--wow-space-3);
+    left: auto;
+  }
+
+  .wow-page .mixed-material-feed__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--wow-space-3);
+  }
+
+  .wow-page.editorial-home .wow-after-hero-shell {
+    width: 100%;
+  }
+
+  .wow-page.editorial-home .hero,
+  .wow-page.editorial-home .wow-after-hero-content > .section,
+  .wow-page.editorial-home .home-feed > .section {
+    padding: var(--wow-space-2) var(--wow-space-4);
+  }
+
+  .wow-page.editorial-home .hero-frame {
+    padding: var(--wow-space-3);
+    border-radius: var(--wow-radius-md);
+  }
+
+  .hero-preview-tabs {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 136px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  .hero-preview-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hero-preview {
+    height: auto;
+    aspect-ratio: 9 / 16;
+    padding: var(--wow-space-4);
+    scroll-snap-align: start;
+  }
+
+  .wow-page.editorial-home .wow-hero-mask {
+    aspect-ratio: 9 / 16;
+    border-radius: var(--wow-radius-sm);
+  }
+
+  .wow-page.editorial-home .slide-copy {
+    right: var(--wow-space-4);
+    bottom: var(--wow-space-4);
+    left: var(--wow-space-4);
+    width: auto;
+  }
+
+  .wow-page.editorial-home .slide-copy h1 {
+    font-size: var(--zi-font-size-21);
+    line-height: var(--zi-line-25);
+  }
+
+  .wow-page.editorial-home .copy-line {
+    white-space: normal;
+  }
+
+  .wow-page.editorial-home .slide-copy p {
+    font-size: var(--zi-font-size-13);
+    line-height: var(--zi-line-18);
+  }
+
+  .wow-page.editorial-home .hero-arrow {
+    display: none;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .opening-ad,
+  .hero-preview-edge,
+  .hero-preview::before,
+  .hero-preview::after {
+    transition: none;
+  }
+
+}
+
+/* Compact editorial rhythm and shared surfaces for the remaining home utilities. */
+.wow-page .wow-after-hero-content > .section {
+  padding-top: var(--wow-space-5);
+  padding-bottom: var(--wow-space-5);
+}
+
+@media (min-width: 1280px) {
+  .wow-page .wow-after-hero-content > .section {
+    padding-top: var(--wow-space-6);
+    padding-bottom: var(--wow-space-6);
+  }
+
+}
+
+/* T-J-inspired editorial sections: compact rounded rail plus four feature cards. */
+
+.wow-page .compact-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  color: var(--ink);
+  text-decoration: none;
+  scroll-snap-align: start;
+}
+
+.wow-page .compact-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--wow-radius-sm);
+  background: var(--zi-color-border-default-subtle);
+  transition: transform 280ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.wow-page .compact-card:hover:where(html[data-hover-enabled] *) img,
+.wow-page .compact-card:focus-visible img {
+  transform: scale(1.02);
+}
+
+.wow-page .compact-card h3 {
+  min-height: 63px;
+  margin: var(--wow-space-3) 0 var(--wow-space-2);
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font-size: var(--zi-font-size-16);
+  line-height: var(--zi-line-20);
+  font-weight: var(--zi-weight-600);
+
+}
+
+.wow-page .compact-card span {
+  color: #52778d;
+  font-size: var(--zi-font-size-12);
+  line-height: var(--zi-line-16);
+}
+
+.wow-page #week {
+  scroll-margin-top: calc(var(--wow-header-active-height) + var(--wow-space-6));
+}
+
+/* Topic-first home feed: every rubric mixes editorial formats inside one surface. */
+
+.wow-page .material-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(19, 125, 184, 0.12);
+  border-radius: var(--wow-radius-md);
+  color: var(--ink);
+  background: rgba(247, 252, 255, 0.96);
+  text-decoration: none;
+  scroll-snap-align: start;
+}
+
+.wow-page .material-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  display: block;
+  object-fit: cover;
+  background: var(--zi-color-border-default-subtle);
+  transition: transform 320ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.wow-page .material-card:hover:where(html[data-hover-enabled] *) .material-card__image,
+.wow-page .material-card:focus-visible .material-card__image {
+  transform: scale(1.035);
+}
+
+.wow-page .content-badge {
+  position: absolute;
+  top: var(--wow-space-3);
+  left: var(--wow-space-3);
+  z-index: 1;
+  padding: var(--zi-space-5) var(--zi-space-10);
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: var(--wow-radius-control-compact);
+  color: #ffffff;
+  background: rgba(0, 59, 93, 0.62);
+  box-shadow: 0 6px 18px rgba(0, 30, 48, 0.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: var(--zi-font-size-12);
+  line-height: var(--zi-line-16);
+  font-weight: var(--zi-weight-600);
+}
+
+.wow-page .material-card__content {
+  min-height: 128px;
+  padding: var(--wow-space-4);
+}
+
+.wow-page .material-card__content h3 {
+  margin: 0;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font-size: var(--zi-font-size-16);
+  line-height: var(--zi-line-22);
+  font-weight: var(--zi-weight-600);
+
+}
+
+.wow-page .material-card__meta {
+  margin: var(--wow-space-3) 0 0;
+  color: #52778d;
+  font-size: var(--zi-font-size-12);
+  line-height: var(--zi-line-16);
+}
+
+.wow-page .material-card:focus-visible {
+  outline: 3px solid rgba(19, 125, 184, 0.28);
+  outline-offset: 3px;
+}
+
+.wow-page .compact-card:focus-visible {
+  outline: 3px solid rgba(19, 125, 184, 0.28);
+  outline-offset: 3px;
+}
+
+@media (max-width: 767px) {
+
+  .wow-page .material-card__content {
+    min-height: 116px;
+    padding: var(--wow-space-3);
+  }
+
+  .wow-page .material-card__content h3 {
+    font-size: var(--zi-font-size-16);
+    line-height: var(--zi-line-20);
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wow-page .compact-card img,
+.wow-page .material-card__image {
+    scroll-behavior: auto;
+    transition: none;
+  }
+}
+
+/* WOW header layout mode. The former floating geometry remains the default CSS path. */
+@media (min-width: 768px) {
+  html.is-specials-overlay-open {
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  .wow-page.wow-header-layout-flush {
+    --wow-header-top: 0px;
+    --wow-header-inline-offset: 0px;
+    --wow-header-action-inset: var(--wow-space-6);
+  }
+
+  .wow-page.wow-header-layout-flush .header--flush,
+  .wow-page.wow-header-layout-flush .header--flush.is-scrolled,
+  .wow-page.wow-header-layout-flush .header--flush.is-after-hero {
+    top: 0;
+    right: 0;
+    left: 0;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+  }
+
+  .wow-page.wow-header-layout-flush .header--flush.is-specials-open {
+    border-bottom-color: transparent;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: none;
+  }
+
+  .wow-page.wow-header-layout-flush .header--flush + .special-projects {
+    top: var(--wow-header-viewport-bottom, var(--wow-desktop-header-height));
+    padding-inline: max(24px, calc((100% - var(--zi-layout-max-width)) / 2 + 24px));
+    z-index: 99;
+    height: min(
+      620px,
+      calc(100dvh - var(--wow-header-viewport-bottom, var(--wow-desktop-header-height)) - 64px)
+    );
+    border-top: 1px solid var(--zi-color-border-default-subtle);
+    border-radius: 0 0 var(--wow-radius-header) var(--wow-radius-header);
+    background: rgba(255, 255, 255, 0.94);
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(-16px);
+    transform-origin: top center;
+    transition:
+      opacity 180ms ease,
+      clip-path 300ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 300ms;
+  }
+
+  .wow-page.wow-header-layout-flush .header-specials-scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 98;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: block;
+    border: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 180ms ease, visibility 0s linear 180ms;
+  }
+
+  .wow-page.wow-header-layout-flush .header-specials-scrim.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s;
+  }
+
+  .wow-page.wow-header-layout-flush .header--flush.is-specials-open + .special-projects {
+    height: min(
+      620px,
+      calc(100dvh - var(--wow-header-viewport-bottom, var(--wow-desktop-header-height)) - 64px)
+    );
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+    transition-delay: 0s;
+  }
+}
+
+/* Habr-like above-header inventory: full-bleed ad first, sticky shared chrome second. */
+.wow-page.editorial-home .header {
+  position: sticky;
+  order: 1;
+  align-self: stretch;
+}
+
+@media (max-width: 767px) {
+  .wow-page.editorial-home .header,
+  .wow-page.editorial-home .header.is-scrolled,
+  .wow-page.editorial-home .header.is-after-hero {
+    top: var(--wow-header-offset);
+    right: auto;
+    left: auto;
+    width: calc(100% - 24px);
+    margin: 12px auto 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .wow-page.editorial-home.wow-header-layout-flush .header--flush,
+  .wow-page.editorial-home.wow-header-layout-flush .header--flush.is-scrolled,
+  .wow-page.editorial-home.wow-header-layout-flush .header--flush.is-after-hero {
+    position: sticky;
+    top: 0;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (min-width: 768px) {
+  .wow-page.wow-header-layout-flush .header--flush + .special-projects {
+    transform: none;
+    transition: opacity 120ms linear, visibility 0s linear 120ms;
+  }
+
+  .wow-page.wow-header-layout-flush .header--flush.is-specials-open + .special-projects {
+    transition-delay: 0s;
+  }
+
+  .wow-page.wow-header-layout-flush .header-specials-scrim {
+    transition: opacity 120ms linear, visibility 0s linear 120ms;
+  }
+}
+
+/* Edge chevrons and a full-width progress track overlay the media. */
+
+.wow-page.editorial-home .slide-copy {
+  top: auto;
+  right: 80px;
+  bottom: 24px;
+  left: 80px;
+  width: auto;
+  translate: none;
+}
+
+@media (max-width: 767px) {
+
+  .wow-page.editorial-home .slide-copy { right: 64px; left: 64px; }
+}
+
+.opening-advertisement:focus { outline: none; }

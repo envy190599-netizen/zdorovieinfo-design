@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head><script>const originalInterval=window.setInterval;window.setInterval=(fn,ms)=>originalInterval(()=>{if(!document.hidden&&!matchMedia("(prefers-reduced-motion: reduce)").matches)fn();},ms);</script>
+<meta charset="UTF-8">
+
+<style>
+
+body {
+	margin:0;
+	padding:0;
+}
+
+.red {
+	stroke:none;
+	fill:#E8A2A5;
+}
+
+.blue {
+	stroke:none;
+	fill:#2E52A3;
+}
+
+.light-blue {
+	stroke:none;
+	fill:#289BDB;
+}
+.yellow {
+	stroke:none;
+	fill:#FFDC5D;
+}
+.white{
+	stroke:none;
+	fill:#FFFFFF;
+}
+
+.img {
+	width:100%;
+	height:100%;
+	position:absolute;
+}
+
+.bg {
+	background:#A63F3F;
+}
+</style>
+
+<title>Shape</title>
+</head>
+<body>
+
+<div class='bg img'></div>
+
+<svg class='img' viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+	<path id='c1' class='red' d=''></path>
+</svg>
+
+<img src='tromb_static.svg' class='img'>
+
+<svg class='img' viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+	<path id='w1' class='white' d=''></path>
+	<path id='w2' class='white' d=''></path>
+	<path id='b1' class='white' d=''></path>
+	<path id='b2' class='blue' d=''></path>
+	<path id='b3' class='blue' d=''></path>
+	<path id='y1' class='yellow' d=''></path>
+	<path id='y2' class='yellow' d=''></path>
+</svg>
+
+
+<script src='code.js'></script>
+
+
+</body>
+</html>

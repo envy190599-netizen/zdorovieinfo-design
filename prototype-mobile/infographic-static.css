@@ -1,0 +1,4 @@
+/* A static publisher canvas, fully visible in normal document flow. */
+.static-infographic { margin: 0; min-width: 0; width: 100%; }
+.static-infographic > img { display: block; width: 100%; height: auto; max-width: 100%; border-radius: 0; }
+.static-infographic-page .site-mascot { display: none; }

@@ -1,0 +1,114 @@
+[
+  {
+    "slug": "donor-eligibility",
+    "provider": "Freepik / Magnific",
+    "source": "https://www.magnific.com/free-photo/girl-holding-small-lovely-heart-tiny-things-valentine-s-day_16597863.htm",
+    "author": "teksomolika",
+    "aiGenerated": false,
+    "originalDimensions": [
+      3573,
+      2640
+    ],
+    "cover": "./assets/editorial/static-infographics/donor-eligibility-cover.webp",
+    "dimensions": [
+      1920,
+      1419
+    ]
+  },
+  {
+    "slug": "leukemia",
+    "provider": "Freepik / Magnific",
+    "source": "https://www.magnific.com/free-photo/top-view-microscope-test-tubes_6913689.htm",
+    "author": "magnific",
+    "aiGenerated": false,
+    "originalDimensions": [
+      5760,
+      3840
+    ],
+    "cover": "./assets/editorial/static-infographics/leukemia-cover.webp",
+    "dimensions": [
+      1920,
+      1280
+    ]
+  },
+  {
+    "slug": "blood-pressure",
+    "provider": "Freepik / Magnific",
+    "source": "https://www.magnific.com/free-photo/automatic-blood-pressure-monitor_1272271.htm",
+    "author": "suksao",
+    "aiGenerated": false,
+    "originalDimensions": [
+      5184,
+      3456
+    ],
+    "cover": "./assets/editorial/static-infographics/blood-pressure-cover.webp",
+    "dimensions": [
+      1920,
+      1280
+    ]
+  },
+  {
+    "slug": "sleep-brain",
+    "provider": "Freepik / Magnific",
+    "source": "https://www.magnific.com/free-photo/woman-sleeping-comfortably-her-pillow_17430401.htm",
+    "author": "rawpixel.com",
+    "aiGenerated": false,
+    "originalDimensions": [
+      6238,
+      4160
+    ],
+    "cover": "./assets/editorial/static-infographics/sleep-brain-cover.webp",
+    "dimensions": [
+      1920,
+      1280
+    ]
+  },
+  {
+    "slug": "donor-food-before",
+    "provider": "Freepik / Magnific",
+    "source": "https://www.magnific.com/free-photo/toast-with-pineapple-jam-tea-breakfast-rustic_26805636.htm",
+    "author": "boyarkinamarina",
+    "aiGenerated": false,
+    "originalDimensions": [
+      3840,
+      5760
+    ],
+    "cover": "./assets/editorial/static-infographics/donor-food-before-cover.webp",
+    "dimensions": [
+      1280,
+      1920
+    ]
+  },
+  {
+    "slug": "donor-health",
+    "provider": "Unsplash",
+    "source": "https://unsplash.com/photos/ufgOGpa8gWo",
+    "author": "Jeremy Stewart",
+    "existingSource": "design-assets/stock/running-park.jpg",
+    "originalDimensions": [
+      1400,
+      933
+    ],
+    "cover": "./assets/editorial/static-infographics/donor-health-cover.webp",
+    "dimensions": [
+      1400,
+      933
+    ]
+  },
+  {
+    "slug": "donor-food-between",
+    "provider": "Unsplash",
+    "source": "https://unsplash.com/photos/KPDbRyFOTnE",
+    "author": "Ella Olsson",
+    "existingSource": "design-assets/stock/food-salmon-quinoa.jpg",
+    "originalDimensions": [
+      1400,
+      933
+    ],
+    "cover": "./assets/editorial/static-infographics/donor-food-between-cover.webp",
+    "dimensions": [
+      1400,
+      933
+    ]
+  }
+]

@@ -1,0 +1,508 @@
+/* Shared component roles. Load after route skins so their geometry stays consistent. */
+body:is(.wow-page, .wow-route-context, .component-library-page) :is(.week-digest__panel, .reading-sidebar, .disease-library,
+  .newsletter, .menu-newsletter, .article-layout, .article-not-found,
+  .home-leaderboard-frame, .advertisement-rail__stage,
+  .desktop-ad-rail, .desktop-ad-rail__stage, .story-card, .article-card,
+  .material-card, .info-item, .component-sample, .library-header) {
+  border-radius: var(--zi-radius-panel);
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) :is(.article-detail__hero, .article-copy img, .slideshow-media,
+  .week-digest__thumbnail, .sidebar-material-card img, .info-item img,
+  .hero-preview) {
+  border-radius: var(--zi-radius-media);
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) :is(.header-section-panel, .special-projects) {
+  border-bottom-left-radius: var(--zi-radius-panel);
+  border-bottom-right-radius: var(--zi-radius-panel);
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) :is(.header-section-panel a, .special-projects__column a,
+  .ticker-label, .scroll-tabs__label, .topic-more,
+  .topic-catalog__list a, .topic-catalog__close, .navigation-item) {
+  border-radius: var(--zi-radius-control);
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) .disease-library__links a {
+  border-radius: var(--zi-radius-pill);
+}
+
+body:is(.wow-page, .wow-route-context) .content-badge {
+  border-radius: var(--zi-radius-pill);
+}
+
+/* Card spacing is also the basis for panels, lists and the detail page. */
+body:is(.wow-page, .wow-route-context, .component-library-page) :is(.article-layout, .article-not-found, .component-sample, .library-header) {
+  padding: var(--zi-inset-panel);
+  gap: var(--zi-gap-section);
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) :is(.reading-sidebar, #encyclopedia.disease-library) {
+  padding: var(--zi-inset-reading-block) var(--zi-space-20);
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) .footer .newsletter {
+  padding: var(--zi-space-15);
+  gap: var(--zi-space-20);
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) .reading-sidebar > h2 {
+  margin-bottom: var(--zi-space-20);
+  padding-bottom: 0;
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) :is(.home-right-rail__materials, .article-body, .article-copy) {
+  gap: var(--zi-space-20);
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) .home-right-rail .advertisement-rail {
+  margin-top: var(--zi-space-20);
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) .week-digest__header {
+  padding: var(--week-digest-block-inset) var(--zi-inset-panel) var(--zi-space-30);
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) .week-digest__list {
+  padding-inline: var(--zi-inset-panel);
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) .week-row {
+  padding-block: var(--zi-space-15);
+  gap: var(--zi-space-15);
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) .week-digest__more {
+  margin: calc(var(--zi-space-30) - var(--zi-space-12)) var(--zi-inset-panel) calc(var(--week-digest-block-inset) - var(--zi-space-12));
+  padding-top: 0;
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) :is(.topic-material-grid, .mixed-material-feed__grid).editorial-material-grid {
+  gap: var(--zi-gap-grid);
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) .editorial-material-grid > .material-card .material-card__content {
+  padding: var(--zi-inset-card);
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) .editorial-material-grid > .material-card:nth-child(5n) .material-card__image {
+  width: calc(100% - var(--zi-inset-media) * 2);
+  margin: var(--zi-inset-media) var(--zi-inset-media) 0;
+  border-radius: var(--zi-radius-panel);
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) .editorial-material-grid > .material-card:nth-child(5n) .material-card__content {
+  padding: var(--zi-space-20) calc(var(--zi-inset-media) * 2) var(--zi-inset-feature);
+}
+
+/* The image inset and the badge's inset inside it are both 10 px. */
+body:is(.wow-page, .wow-route-context) .editorial-material-grid > .material-card:nth-child(5n) .content-badge {
+  top: calc(var(--zi-inset-media) * 2);
+  left: calc(var(--zi-inset-media) * 2);
+}
+
+body:is(.wow-page, .wow-route-context) .editorial-material-grid > .material-card:nth-child(5n) .material-card__image {
+  transform: none;
+  transition: none;
+}
+
+body:is(.wow-page, .wow-route-context, .component-library-page) .footer .footer-content {
+  padding-block: var(--zi-gap-section);
+  gap: var(--zi-space-20);
+}
+
+/* Full-bleed surfaces keep straight edges; only their contained components round. */
+body.wow-page.editorial-home {
+  --editorial-outer-gutter: var(--zi-page-gutter);
+}
+
+body.wow-page.editorial-home.fullscreen-home {
+  --hero-content-inset: var(--zi-layout-header-inset);
+}
+
+body.wow-page.fullscreen-home .home-content-frame {
+  padding-top: var(--zi-gap-section);
+}
+
+body.wow-page.fullscreen-home .header.header--wow {
+  border-radius: 0;
+}
+
+body.wow-page.editorial-home .wow-after-hero-content > .section,
+body.wow-page.editorial-home .home-feed > .section {
+  padding: 0;
+  margin-bottom: var(--zi-gap-section);
+}
+
+body.wow-page.editorial-home .wow-after-hero-content > #week.section {
+  padding: 0;
+}
+
+body:is(.wow-page, .wow-route-context) .home-right-rail {
+  margin-top: 0;
+}
+
+[data-disease-library-mobile]:not(:empty) {
+  margin-bottom: var(--zi-gap-section);
+}
+
+body.wow-page.fullscreen-home .home-leaderboard-frame {
+  margin-bottom: var(--zi-gap-section);
+}
+
+body.fullscreen-home .hero-preview-shell {
+  bottom: var(--zi-space-20);
+}
+
+body.fullscreen-home .hero-preview-tabs {
+  padding-inline: var(--hero-content-inset);
+  scroll-padding-inline: var(--hero-content-inset);
+}
+
+body.wow-page.fullscreen-home .slide-copy {
+  bottom: calc(var(--hero-preview-height) + var(--zi-space-20) + var(--hero-copy-action-gap) * 1.5);
+}
+
+@media (max-width: 767px) {
+  body.wow-route-context .phone-shell {
+    width: 100%;
+  }
+
+  body.wow-page.editorial-home .wow-after-hero-shell {
+    width: 100%;
+  }
+
+  body.wow-page.editorial-home [data-disease-library-mobile]:not(:empty) {
+    margin-inline: 0;
+  }
+
+  body.wow-page.editorial-home .wow-after-hero-content > .footer {
+    width: 100%;
+    margin-inline: 0;
+  }
+
+  body.wow-page.editorial-home.fullscreen-home {
+    --hero-content-inset: var(--zi-page-gutter);
+  }
+
+  body.fullscreen-home .home-leaderboard-frame {
+    width: calc(100% - var(--zi-page-gutter) * 2);
+  }
+
+  body:is(.wow-page, .wow-route-context, .component-library-page) .week-row {
+    gap: var(--zi-space-12);
+  }
+
+}
+
+/* Shared white editorial surfaces: soft elevation without a contour. */
+body:is(.wow-page, .wow-route-context, .component-library-page) :is(
+  .material-reader-card, .week-digest__panel,
+  .reading-sidebar, .disease-library, .article-not-found, .home-leaderboard-frame,
+  .advertisement-rail__stage, .desktop-ad-rail__stage,
+  .story-card, .article-card, .info-item, .material-card, .component-sample
+) {
+  border-color: transparent;
+  box-shadow: var(--zi-shadow-card);
+  transition: box-shadow 180ms ease, outline-color 180ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+body:is(.wow-page, .wow-route-context, .component-library-page) :is(
+  .material-reader-card, .week-digest__panel,
+  .reading-sidebar, .disease-library, .article-not-found, .home-leaderboard-frame,
+  .advertisement-rail__stage, .desktop-ad-rail__stage,
+  .story-card, .article-card, .info-item, .material-card, .component-sample
+):hover:where(html[data-hover-enabled] *) {
+  border-color: transparent;
+  box-shadow: var(--zi-shadow-card-hover);
+}
+}
+
+/* Keep outline geometry stable so hover fades from transparent, never currentColor. */
+body:is(.wow-page, .wow-route-context, .component-library-page) :is(
+  .story-card, .article-card, .info-item, .material-card, .compact-card
+):not(:focus-visible) {
+  outline: 1px solid transparent;
+  outline-offset: 0;
+}
+body:is(.wow-page, .wow-route-context, .component-library-page) :is(
+  .story-card, .article-card, .info-item, .material-card,
+  .compact-card, .sidebar-material-card, .week-row
+):is(:hover:where(html[data-hover-enabled] *), :focus-visible) :is(img, .article-card__media, .material-card__image) {
+  transform: none;
+}
+body:is(.wow-page, .wow-route-context) .related-materials .compact-card .card-photo-frame {
+  outline: 2px solid transparent;
+  outline-offset: 0;
+  transition: outline-color 180ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+body:is(.wow-page, .wow-route-context, .component-library-page) :is(
+  .material-reader-card, .week-digest__panel,
+  .reading-sidebar, .disease-library, .article-not-found, .home-leaderboard-frame,
+  .advertisement-rail__stage, .desktop-ad-rail__stage,
+  .story-card, .article-card, .info-item, .material-card, .component-sample
+) { transition: none; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body:is(.wow-page, .wow-route-context, .component-library-page) :is(
+    .story-card, .article-card, .info-item, .material-card
+  ):hover:where(html[data-hover-enabled] *):not(:focus-visible) {
+    outline-color: transparent;
+  }
+  body:is(.wow-page, .wow-route-context) .related-materials .compact-card:hover:where(html[data-hover-enabled] *) .card-photo-frame {
+    outline-color: transparent;
+    box-shadow: var(--zi-shadow-card-hover);
+  }
+}
+
+/* A subtle blue-gray stroke separates white badges from pale covers. */
+body:is(.wow-page, .wow-route-context, .component-library-page) :is(.content-badge, .story-card__badge) {
+  font-weight: var(--zi-weight-500);
+  color: var(--ink);
+  background: var(--zi-color-background-badge);
+  border: 1px solid var(--zi-color-border-default-subtle);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* A stationary clipped frame owns geometry; only its photo zooms. */
+body:is(.wow-page, .wow-route-context, .component-library-page) .card-photo-frame {
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+body:is(.wow-page, .wow-route-context, .component-library-page) .compact-card > .card-photo-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--zi-radius-media);
+}
+body:is(.wow-page, .wow-route-context) .sidebar-material-card > .card-photo-frame {
+  margin-bottom: var(--wow-space-3);
+}
+body:is(.wow-page, .wow-route-context) .sidebar-material-card--thumbnail > .card-photo-frame {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  width: 64px;
+  height: 64px;
+  aspect-ratio: 1;
+  margin: 0;
+}
+body:is(.wow-page, .wow-route-context) .sidebar-material-card--text > .card-photo-frame {
+  display: none;
+}
+body:is(.wow-page, .wow-route-context, .component-library-page) .card-photo-frame > img.card-photo {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 0;
+  outline: none;
+  object-fit: cover;
+  transform: none;
+  transition: transform 320ms cubic-bezier(0, 0, 0.2, 1);
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  body:is(.wow-page, .wow-route-context, .component-library-page) :is(.material-card, .compact-card, .week-row):hover:where(html[data-hover-enabled] *) .card-photo-frame > img.card-photo {
+    transform: scale(1.04);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body:is(.wow-page, .wow-route-context, .component-library-page) .card-photo-frame > img.card-photo {
+    transition: none;
+  }
+}
+/* Assistant artwork keeps its geometry; the feed trigger owns pointer events. */
+.site-mascot {
+  position: fixed;
+  right: max(12px, env(safe-area-inset-right));
+  bottom: max(12px, env(safe-area-inset-bottom));
+  z-index: 40;
+  width: auto;
+  height: 112px;
+  aspect-ratio: 2 / 3;
+  pointer-events: none;
+  user-select: none;
+  isolation: isolate;
+}
+
+.site-mascot > picture,
+.site-mascot > picture > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* On the home page the assistant enters only after the weekly digest is reached. */
+.site-mascot.site-mascot--scroll-gated {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 360ms ease-out, visibility 0s linear 360ms;
+}
+.site-mascot.site-mascot--scroll-gated.is-scroll-visible {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-mascot.site-mascot--scroll-gated { transition: none; }
+}
+
+html:is(.is-opening-ad-open, .is-specials-overlay-open, .is-site-menu-open) .site-mascot,
+html:is(.is-opening-ad-open, .is-specials-overlay-open, .is-site-menu-open) .site-mascot.site-mascot--scroll-gated {
+  visibility: hidden;
+}
+
+@media (min-width: 768px) {
+  .site-mascot {
+    right: max(24px, env(safe-area-inset-right));
+    bottom: max(20px, env(safe-area-inset-bottom));
+    height: 180px;
+  }
+}
+
+@media print {
+  .site-mascot { display: none; }
+}
+
+/* Wide editorial covers keep the same 16:9 frame at every viewport size. */
+body:is(.wow-page, .wow-route-context, .component-library-page) :is(.topic-material-grid, .mixed-material-feed__grid).editorial-material-grid > .material-card:nth-child(5n) .material-card__image {
+  aspect-ratio: 16 / 9;
+  max-height: none;
+}
+
+/* Mobile editorial rhythm, measured on T—Ж at 390 px: one full-width
+   card per row, 20 px between cards and 20 px text insets. */
+@media (max-width: 767px) {
+  body.wow-route-context .topic-page-layout { padding: var(--zi-space-20) 0; }
+
+  body:is(.wow-page, .wow-route-context) :is(.topic-material-grid, .mixed-material-feed__grid).editorial-material-grid {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: none;
+    gap: var(--zi-space-20);
+  }
+  body:is(.wow-page, .wow-route-context) .editorial-material-grid > .material-card {
+    grid-column: 1 / -1;
+  }
+  body:is(.wow-page, .wow-route-context) .editorial-material-grid:not([data-view="list"]) > .material-card:nth-child(n) .material-card__image {
+    width: 100%;
+    margin: 0;
+    border-radius: var(--zi-radius-panel) var(--zi-radius-panel) 0 0;
+    aspect-ratio: 16 / 9;
+  }
+  body:is(.wow-page, .wow-route-context) .editorial-material-grid:not([data-view="list"]) > .material-card:nth-child(n) .material-card__content {
+    min-height: 0;
+    padding: var(--zi-space-20);
+  }
+  body:is(.wow-page, .wow-route-context) .editorial-material-grid > .material-card:nth-child(n) .content-badge {
+    top: var(--zi-space-10);
+    left: var(--zi-space-10);
+  }
+  body:is(.wow-page, .wow-route-context) .editorial-material-grid .material-card__content h3 {
+    display: block;
+    font-size: var(--zi-font-size-21);
+    line-height: var(--zi-line-25);
+    font-weight: var(--zi-weight-600);
+
+    -webkit-line-clamp: unset;
+    overflow: visible;
+  }
+  body:is(.wow-page, .wow-route-context) .editorial-material-grid .material-card__meta {
+    order: -1;
+    margin: 0;
+    font-size: var(--zi-font-size-15);
+    line-height: var(--zi-line-20);
+    font-weight: var(--zi-weight-400);
+
+  }
+  body:is(.wow-page, .wow-route-context) .editorial-material-grid .material-card__content {
+    gap: 5px;
+  }
+}
+
+/* Preserve the compact text inset under wide covers. */
+@media (min-width: 768px) {
+  body:is(.wow-page, .wow-route-context, .component-library-page) .editorial-material-grid > .material-card:nth-child(5n) .material-card__content {
+    min-height: 0;
+    padding: var(--zi-space-15) calc(var(--zi-inset-media) * 2) var(--zi-space-20);
+  }
+}
+
+/* Navigation controls: 12 px corners instead of circular and pill frames. */
+body :is(.social-links--header, .social-links--menu, .footer .social-links--footer) a {
+  border-radius: var(--zi-radius-navigation);
+}
+
+/* The footer keeps the white content surface and rounded corners without an outline. */
+body:is(.wow-page, .wow-route-context, .component-library-page) .footer.footer {
+  background: var(--zi-color-background-default-default);
+  padding: var(--zi-inset-panel);
+  border: 0;
+  border-radius: var(--zi-radius-panel);
+}
+body .footer.footer .footer-content { padding-block: 0; }
+
+/* Footer columns: copy determines subscription width, its content determines height. */
+body:is(.wow-page, .wow-route-context, .component-library-page) .footer.footer {
+  margin-top: var(--zi-gap-section);
+}
+body:is(.wow-page, .wow-route-context, .component-library-page) .footer .footer-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: stretch;
+  gap: var(--zi-space-20);
+}
+body .footer.footer .footer-about {
+  align-self: stretch;
+  justify-content: space-between;
+  gap: var(--zi-space-20);
+}
+body:is(.wow-page, .wow-route-context, .component-library-page) .footer .newsletter {
+  width: fit-content;
+  max-width: 100%;
+  height: auto;
+  min-height: 0;
+  align-self: stretch;
+  justify-content: space-between;
+  padding: var(--zi-space-20);
+  gap: var(--zi-space-10);
+}
+body .footer.footer .newsletter-copy { display: contents; }
+body .footer.footer .newsletter-copy :is(h3, p) {
+  width: auto;
+  max-width: 100%;
+  margin: 0;
+}
+body .footer.footer .newsletter-input {
+  width: 100%;
+  min-width: 0;
+  contain: inline-size;
+  flex: 0 0 44px;
+}
+@container (max-width: 575px) {
+  body:is(.wow-page, .wow-route-context, .component-library-page) .footer .footer-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  body .footer.footer .footer-about { gap: var(--zi-space-20); }
+}
+
+body .footer.footer .footer-nav { gap: var(--zi-space-20); }
+body .footer.footer .newsletter-input button {
+  display: none;
+  border: 0;
+  background: transparent;
+}
+body .footer.footer .newsletter-input button::before { transform: translate(-50%, -50%); }
+@media (min-width: 768px) {
+  body .footer.footer .newsletter-input:has(input:not(:placeholder-shown)):not(.is-sent) button { display: block; }
+}

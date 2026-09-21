@@ -1,0 +1,297 @@
+/* Fullscreen opening composition; the saved compact version remains tagged in Git. */
+body.wow-page.editorial-home.fullscreen-home {
+  --hero-body-font-size: var(--zi-font-size-18);
+  --hero-copy-action-gap: var(--zi-space-20);
+  --hero-preview-width: calc(clamp(288px, 28vw, 400px) / 1.5);
+  --hero-preview-height: calc(var(--hero-preview-width) * 9 / 16);
+  --hero-aspect-ratio: 16 / 9;
+  --hero-surface-max-width: 100vw;
+
+  --hero-content-inset: var(--zi-layout-header-inset);
+}
+
+body.wow-page.editorial-home.fullscreen-home .header.header--wow,
+body.wow-page.editorial-home.fullscreen-home .header.header--wow.is-scrolled,
+body.wow-page.editorial-home.fullscreen-home .header.header--wow.is-after-hero {
+  position: fixed;
+  inset: 0 0 auto;
+  width: min(100%, var(--hero-surface-max-width));
+  margin: 0 auto;
+  transform: none;
+  --header-surface-color: rgba(255, 255, 255, 0.88);
+  background: transparent;
+  overflow: visible;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body.wow-page.editorial-home.fullscreen-home .header.header--wow.is-scrolled {
+  --header-surface-color: rgba(255, 255, 255, 0.97);
+}
+
+/* Header surface and controls span the same full-width viewport grid. */
+body.wow-page.editorial-home.fullscreen-home .header.header--wow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: -1;
+  pointer-events: none;
+  background: var(--header-surface-color);
+  box-shadow: 0 12px 36px rgba(0, 59, 93, 0.12);
+  backdrop-filter: blur(20px) saturate(1.45);
+  -webkit-backdrop-filter: blur(20px) saturate(1.45);
+}
+
+body.wow-page.fullscreen-home .hero {
+  position: relative;
+  top: auto;
+  z-index: 1;
+  flex-shrink: 0;
+  order: 0;
+  width: min(100%, var(--hero-surface-max-width));
+  max-width: 100%;
+  height: auto;
+  max-height: 100svh;
+  min-height: 0;
+  aspect-ratio: var(--hero-aspect-ratio);
+  padding: 0;
+  margin: 0 auto;
+}
+
+body.wow-page.fullscreen-home .hero-frame,
+body.wow-page.fullscreen-home .wow-hero-mask {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body.fullscreen-home .hero-slide::after {
+  background: linear-gradient(180deg, rgba(0, 31, 49, 0.1) 20%, rgba(0, 31, 49, 0.36) 48%, rgba(0, 25, 42, 0.86) 100%);
+}
+
+body.wow-page.fullscreen-home .slide-copy {
+  left: var(--hero-content-inset);
+  right: var(--hero-content-inset);
+  top: auto;
+  bottom: calc(var(--hero-preview-height) + 24px + var(--hero-copy-action-gap) * 1.5);
+  translate: none;
+  width: auto;
+  max-width: 720px;
+}
+
+body.wow-page.fullscreen-home .slide-copy h1 {
+  font-size: var(--zi-fluid-display);
+  line-height: var(--zi-leading-1-1);
+  margin-bottom: var(--zi-space-15);
+}
+
+body.wow-page.fullscreen-home .slide-copy p {
+  white-space: normal;
+  width: auto;
+  max-width: 640px;
+  margin: 0;
+  font-size: var(--hero-body-font-size);
+  line-height: var(--zi-leading-1-5);
+}
+
+body.wow-page.fullscreen-home .primary-button {
+  min-height: 56px;
+  min-width: 220px;
+  margin-top: var(--hero-copy-action-gap);
+  padding: 0 var(--zi-space-30);
+  justify-content: center;
+  border-color: transparent;
+  color: #fff;
+  background: var(--pink);
+  font-size: var(--zi-font-size-18);
+  line-height: var(--zi-line-24);
+}
+
+body.wow-page.fullscreen-home .primary-button:hover:where(html[data-hover-enabled] *),
+body.wow-page.fullscreen-home .primary-button:focus-visible {
+  color: #fff;
+  background: #b91849;
+}
+
+body.fullscreen-home .hero-preview-shell {
+  position: absolute;
+  right: 0;
+  bottom: 24px;
+  left: 0;
+  z-index: 9;
+  margin: 0;
+}
+
+body.fullscreen-home .hero-preview-tabs {
+  display: grid;
+  grid-auto-columns: var(--hero-preview-width);
+  gap: var(--zi-space-12);
+  box-sizing: border-box;
+  padding: 0 var(--hero-content-inset);
+  scroll-padding-inline: var(--hero-content-inset);
+}
+
+body.fullscreen-home .hero-preview {
+  height: var(--hero-preview-height);
+  aspect-ratio: 16 / 9;
+  padding: calc(var(--zi-space-12) + 1px);
+  border: 0;
+}
+
+body.fullscreen-home .hero-preview > span:not(.hero-timeout) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  min-height: 0;
+  white-space: normal;
+  text-wrap: balance;
+  font-size: var(--zi-font-size-18);
+  line-height: var(--zi-leading-1-25);
+}
+
+body.fullscreen-home .hero-preview > small { display: none; }
+
+/* Both overlays cover the full frame; only the selected card draws an edge. */
+body.fullscreen-home .hero-preview::before,
+body.fullscreen-home .hero-preview::after {
+  inset: 0;
+  border-radius: inherit;
+}
+
+body.fullscreen-home .hero-preview.is-active::after {
+  box-shadow: inset 0 0 0 1px #fff;
+}
+
+body.fullscreen-home .hero-preview .hero-timeout {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 4;
+  display: block;
+  width: 100%;
+  height: 3px;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+body.fullscreen-home .hero-preview .hero-timeout > span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: #fff;
+}
+
+body.wow-page.fullscreen-home .advertisement-banner { order: 1; }
+body.wow-page.fullscreen-home .wow-after-hero-shell { order: 2; }
+
+@media (max-width: 767px) {
+  body.wow-page.editorial-home.fullscreen-home {
+    --hero-preview-width: 160px;
+    --hero-preview-height: calc(var(--hero-preview-width) * 9 / 16);
+    --hero-content-inset: 16px;
+  }
+
+  body.fullscreen-home .hero-preview-tabs { padding-inline: var(--zi-space-20); scroll-padding-inline: var(--zi-space-20); }
+  body.fullscreen-home .hero-preview { aspect-ratio: 16 / 9; padding: 8px; }
+  body.fullscreen-home .hero-preview > span:not(.hero-timeout) { font-size: var(--zi-font-size-14); line-height: var(--zi-leading-1-25); }
+  body.wow-page.fullscreen-home .slide-copy h1 { font-size: var(--zi-font-size-24); line-height: var(--zi-line-30); margin-bottom: var(--zi-space-12); }
+  body.wow-page.fullscreen-home .slide-copy p { font-size: var(--hero-body-font-size); line-height: var(--zi-line-20); }
+}
+
+@media (max-height: 700px) and (min-width: 768px) {
+  body.wow-page.editorial-home.fullscreen-home { --hero-preview-width: calc(288px / 1.5); }
+  body.wow-page.fullscreen-home .slide-copy h1 { font-size: var(--zi-font-size-32); }
+}
+
+body.fullscreen-home .slide-copy .copy-line:empty,
+body.fullscreen-home .slide-copy p[hidden] {
+  display: none;
+}
+
+body.wow-page.fullscreen-home .slide-copy .copy-line {
+  white-space: normal;
+}
+
+/* Hero and editorial content follow the normal document scroll. */
+body.fullscreen-home .home-content-frame {
+  position: relative;
+  z-index: 10;
+  order: 2;
+  width: 100%;
+  margin-top: 0;
+  padding-top: var(--zi-space-20);
+  border-radius: 0;
+  background: var(--bg);
+}
+
+/* The horizontal advert follows the viewport gutters, independently of reading columns. */
+body.fullscreen-home .home-leaderboard-frame {
+  width: calc(100% - var(--zi-page-gutter) * 2);
+  margin: 0 auto 24px;
+  overflow: hidden;
+  border-radius: var(--wow-radius-lg);
+  background: var(--zi-color-background-default-default);
+}
+
+@media (max-width: 767px) {
+  body.fullscreen-home .home-leaderboard-frame {
+    width: 100%;
+  }
+}
+
+body.fullscreen-home .hero-preview-edge--previous {
+  left: var(--hero-content-inset);
+}
+
+body.fullscreen-home .hero-preview-edge--next {
+  right: var(--hero-content-inset);
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  body.wow-page.editorial-home.fullscreen-home { --hero-preview-width: calc(224px / 1.5); }
+  body.wow-page.fullscreen-home .hero { min-height: min(560px, 100svh); }
+  body.wow-page.fullscreen-home .slide-copy { max-width: 560px; }
+  body.wow-page.fullscreen-home .slide-copy h1 { font-size: var(--zi-font-size-24); line-height: var(--zi-line-28); margin-bottom: var(--zi-space-12); }
+  body.wow-page.fullscreen-home .slide-copy p { font-size: var(--hero-body-font-size); line-height: var(--zi-line-20); }
+  body.wow-page.fullscreen-home .primary-button { min-height: 48px; font-size: var(--zi-font-size-16); }
+}
+
+body.wow-page.editorial-home.fullscreen-home .hero-slide > :is(img, video) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: none;
+}
+
+@media (max-width: 767px) {
+  body.wow-page.editorial-home.fullscreen-home { --hero-aspect-ratio: 9 / 16; }
+  body.wow-page.editorial-home.fullscreen-home .hero {
+    max-height: none;
+    /* Keep 9:16 while lifting the surface under the header on short phones. */
+    margin-top: min(0px, calc(100svh - 100vw * 16 / 9));
+  }
+}
+
+/* Search grows with the viewport while the logo and actions keep their size. */
+@media (min-width: 1280px) {
+  body.wow-page.fullscreen-home .header--wow {
+    --header-inline-inset: var(--hero-content-inset);
+    --header-search-left: var(--zi-layout-content-left);
+  }
+
+}
+
+@media (max-width: 1279px) {
+  body.wow-page.editorial-home.fullscreen-home { --hero-body-font-size: var(--zi-font-size-14); }
+}

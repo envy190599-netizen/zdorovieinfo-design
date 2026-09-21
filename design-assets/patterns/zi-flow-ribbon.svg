@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="838" height="1881" viewBox="0 0 838 1881" fill="none">
+  <defs>
+    <linearGradient id="ribbonGradient" x1="419" y1="0" x2="419" y2="1881" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#73C9EA"/>
+      <stop offset="0.18" stop-color="#9ADCF1"/>
+      <stop offset="0.34" stop-color="#63C4E8"/>
+      <stop offset="0.405" stop-color="#0B78AB"/>
+      <stop offset="0.455" stop-color="#005985"/>
+      <stop offset="0.56" stop-color="#9475AC"/>
+      <stop offset="0.66" stop-color="#E783B2"/>
+      <stop offset="0.75" stop-color="#EB91BA"/>
+      <stop offset="0.84" stop-color="#7699BB"/>
+      <stop offset="0.91" stop-color="#65B7D8"/>
+      <stop offset="1" stop-color="#86D8F2"/>
+    </linearGradient>
+    <linearGradient id="ribbonHighlight" x1="163" y1="194" x2="533" y2="1764" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.22"/>
+      <stop offset="0.42" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0.7" stop-color="#FFFFFF" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M193 0
+       C190 110 255 147 365 190
+       C490 240 620 258 691 337
+       C758 412 736 493 654 566
+       C595 619 490 656 404 708
+       C361 734 333 757 339 789
+       C348 834 405 876 426 934
+       C454 1010 405 1086 324 1138
+       C266 1175 192 1205 153 1265
+       C109 1332 129 1416 197 1477
+       C246 1522 320 1550 366 1600
+       C417 1655 410 1712 360 1768
+       C322 1810 276 1841 236 1881
+       L232 1881
+       C266 1839 319 1801 347 1755
+       C377 1705 370 1666 329 1624
+       C283 1578 215 1559 161 1512
+       C79 1441 57 1335 112 1249
+       C158 1177 252 1137 323 1086
+       C390 1037 425 983 402 925
+       C382 875 323 835 320 786
+       C317 742 350 705 391 676
+       C480 614 571 575 630 515
+       C697 447 692 385 648 337
+       C592 277 473 249 355 202
+       C245 158 190 110 193 0Z"
+    fill="url(#ribbonGradient)"
+    fill-opacity="0.9"/>
+
+  <path
+    d="M195 0
+       C194 109 257 144 365 187
+       C490 236 618 256 688 335
+       C750 406 730 486 650 559
+       C588 615 486 651 401 703
+       C357 730 330 756 335 790
+       C343 837 400 878 421 935
+       C446 1005 400 1078 319 1132
+       C258 1172 183 1207 146 1267
+       C107 1332 128 1408 192 1468
+       C243 1516 317 1543 363 1595
+       C411 1649 404 1705 355 1761
+       C317 1805 271 1838 234 1881"
+    stroke="url(#ribbonHighlight)"
+    stroke-width="3"
+    stroke-linecap="round"
+    opacity="0.52"/>
+</svg>
