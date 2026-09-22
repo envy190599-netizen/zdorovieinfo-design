@@ -27,7 +27,6 @@
   border: 0;
   background: transparent;
   color: var(--blue-deep);
-  font-size: var(--zi-font-size-28) !important;
   cursor: pointer;
 }
 .feed-dialog h2 { margin: 0 22px 10px 0; font-size: var(--zi-font-size-24); line-height: var(--zi-leading-1-2); }

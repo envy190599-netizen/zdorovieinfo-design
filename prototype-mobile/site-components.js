@@ -161,7 +161,7 @@
     <div class="special-projects" id="special-projects" role="dialog" aria-modal="true" aria-label="Спецпроекты" aria-hidden="true" inert data-site-component="special-projects">
       <div class="special-projects__heading">
         <h2>Спецпроекты</h2>
-        <button class="special-projects__close" type="button" aria-label="Закрыть спецпроекты"><span aria-hidden="true"></span></button>
+        <button class="special-projects__close" type="button" aria-label="Закрыть спецпроекты"><span class="close-icon" aria-hidden="true"></span></button>
       </div>
       <div class="special-projects__list" id="special-project-results">
       ${specialProjectColumns.map((column) => `
@@ -201,7 +201,7 @@
             <input name="q" type="search" enterkeyhint="search" placeholder="Найти на Здоровье Инфо" aria-label="Найти на Здоровье Инфо" />
           </label>
           <button class="sr-only search-input__submit" type="submit">Найти</button>
-          <button class="icon-button search-input__close" type="button" aria-label="Закрыть поиск"><span aria-hidden="true">×</span></button>
+          <button class="icon-button search-input__close" type="button" aria-label="Закрыть поиск"><span class="close-icon" aria-hidden="true"></span></button>
         </form>
         ${socialMarkup("social-links--header")}
         ${wow ? `
@@ -212,7 +212,7 @@
         ` : ""}
         <div class="header-actions">
           <button class="icon-button mobile-search-button" type="button" aria-label="Открыть поиск" aria-expanded="false" aria-controls="site-search-${instanceId}"><img class="search-input__icon" src="./assets/figma/search-desktop.svg" alt="" /></button>
-          <button class="icon-button menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu-panel-${instanceId}"><span></span><span></span><span></span></button>
+          <button class="icon-button menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu-panel-${instanceId}"><svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="12" x2="21" y2="12"/></svg></button>
         </div>
       </header>
       ${wow ? specialProjectsMarkup() : ""}
@@ -898,11 +898,11 @@
   if ((componentSettings.showMascot || document.querySelector('[data-personal-feed]')) && !document.querySelector('[data-feed-assistant]')) {
     const styles = document.createElement('link');
     styles.rel = 'stylesheet';
-    styles.href = './feed-assistant.css?v=20260921-component-names';
+    styles.href = './feed-assistant.css?v=20260922-unified-icons';
     document.head.append(styles);
     const assistant = document.createElement('script');
     assistant.type = 'module';
-    assistant.src = './feed-assistant.js?v=20260921-component-names';
+    assistant.src = './feed-assistant.js?v=20260922-unified-icons';
     assistant.dataset.feedAssistant = '';
     document.body.append(assistant);
   }

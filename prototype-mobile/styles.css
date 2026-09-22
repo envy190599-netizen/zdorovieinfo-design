@@ -389,41 +389,32 @@ body .desktop-ad-rail__stage {
   outline: none;
 }
 
-.menu-toggle span {
-  position: absolute;
-  left: 8px;
+.menu-icon { display: block; width: 24px; height: 24px; margin: auto; overflow: visible; }
+.menu-icon line {
+  stroke: var(--blue);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  transform-origin: 12px 12px;
+  transition: transform 220ms ease, opacity 180ms ease;
+}
+.menu-icon line:nth-child(1) { transform: translateY(-9px); }
+.menu-icon line:nth-child(3) { transform: translateY(9px); }
+.menu-toggle.is-open .menu-icon line:nth-child(1) { transform: rotate(45deg) scaleX(1.4142135624); }
+.menu-toggle.is-open .menu-icon line:nth-child(2) { opacity: 0; }
+.menu-toggle.is-open .menu-icon line:nth-child(3) { transform: rotate(-45deg) scaleX(1.4142135624); }
+.close-icon {
   display: block;
-  width: 20px;
-  height: 2px;
-  border-radius: var(--zi-radius-pill);
-  background: var(--ink);
-  transition: top 220ms ease, transform 220ms ease, opacity 180ms ease;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  margin: auto;
+  background: var(--blue);
+  -webkit-mask: url("./assets/figma/close.svg") center / contain no-repeat;
+  mask: url("./assets/figma/close.svg") center / contain no-repeat;
 }
-
-.menu-toggle span:nth-child(1) {
-  top: 10px;
-}
-
-.menu-toggle span:nth-child(2) {
-  top: 17px;
-}
-
-.menu-toggle span:nth-child(3) {
-  top: 24px;
-}
-
-.menu-toggle.is-open span:nth-child(1) {
-  top: 17px;
-  transform: rotate(45deg);
-}
-
-.menu-toggle.is-open span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.is-open span:nth-child(3) {
-  top: 17px;
-  transform: rotate(-45deg);
+@media (prefers-reduced-motion: reduce) {
+  .menu-icon line { transition: none; }
 }
 
 .menu-toggle:focus-visible {

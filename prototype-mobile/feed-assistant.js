@@ -28,7 +28,7 @@ panel.hidden = true;
 panel.setAttribute('role', 'dialog');
 panel.setAttribute('aria-labelledby', 'feed-dialog-title');
 panel.innerHTML = `
-  <button class="feed-dialog__close" type="button" aria-label="Закрыть настройку ленты">×</button>
+  <button class="feed-dialog__close" type="button" aria-label="Закрыть настройку ленты"><span class="close-icon" aria-hidden="true"></span></button>
   <h2 id="feed-dialog-title">Настроим вашу ленту</h2>
   <p class="feed-dialog__intro">Расскажите немного о себе, чтобы я могла подобрать интересные материалы.</p>
   <p class="feed-dialog__step" aria-live="polite"></p>
@@ -90,7 +90,7 @@ speech.className = 'feed-invitation';
 speech.hidden = true;
 speech.setAttribute('role', 'group');
 speech.setAttribute('aria-labelledby', 'mascot-speech-title');
-speech.innerHTML = '<div class="feed-invitation__header"><h2 id="mascot-speech-title">Умная лента</h2><button class="feed-invitation__close" type="button" aria-label="Закрыть предложение подбора">×</button></div><p class="feed-invitation__subtitle">Давайте подберем интересные материалы для Вас?</p><button class="feed-action feed-invitation__action" type="button" aria-controls="feed-dialog">Подобрать</button>';
+speech.innerHTML = '<div class="feed-invitation__header"><h2 id="mascot-speech-title">Умная лента</h2><button class="feed-invitation__close" type="button" aria-label="Закрыть предложение подбора"><span class="close-icon" aria-hidden="true"></span></button></div><p class="feed-invitation__subtitle">Давайте подберем интересные материалы для Вас?</p><button class="feed-action feed-invitation__action" type="button" aria-controls="feed-dialog">Подобрать</button>';
 const pickButton = speech.querySelector('.feed-invitation__action');
 if (mascot) {
   mascot.append(speech);
