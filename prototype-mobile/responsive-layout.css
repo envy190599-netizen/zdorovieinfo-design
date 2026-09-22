@@ -7,7 +7,7 @@
   body.is-sidebar-navigation :is(.sidebar, .home-right-rail, .advertisement-banner, .home-leaderboard-frame, .opening-ad, .desktop-ad-rail, .advertisement-rail) { display: none !important; }
   body.is-sidebar-navigation .header.header--wow > .logo { position: relative; flex: 0 0 108px; width: 108px; min-width: 108px; height: 40px; margin: 0; }
   body.is-sidebar-navigation .header.header--wow > :is(.social-links--header, .special-button) { display: none; }
-  body.is-sidebar-navigation .header.header--wow .header-actions { position: static; display: flex; margin-left: auto; width: auto; height: 44px; }
+  body.is-sidebar-navigation .header.header--wow:not(.is-search-open) .header-actions { position: static; display: flex; margin-left: auto; width: auto; height: 44px; }
   body.is-sidebar-navigation .burger-menu { position: fixed; z-index: 99; display: flex; flex-direction: column; align-items: stretch; }
   body.is-sidebar-navigation .burger-menu .desktop-sidebar-brand { display: none; }
   body.is-sidebar-navigation .burger-menu .menu-topic-list { width: 100%; }

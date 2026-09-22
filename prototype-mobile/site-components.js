@@ -200,7 +200,7 @@
             <img class="search-input__icon" src="./assets/figma/search-desktop.svg" alt="" />
             <input name="q" type="search" enterkeyhint="search" placeholder="Найти на Здоровье Инфо" aria-label="Найти на Здоровье Инфо" />
           </label>
-          <button class="sr-only search-input__submit" type="submit" aria-label="Найти"><img class="search-input__icon" src="./assets/figma/search-desktop.svg" alt="" /></button>
+          <button class="sr-only search-input__submit" type="submit">Найти</button>
           <button class="icon-button search-input__close" type="button" aria-label="Закрыть поиск"><span aria-hidden="true">×</span></button>
         </form>
         ${socialMarkup("social-links--header")}

@@ -107,6 +107,7 @@
   font-size: var(--zi-font-size-14);
   line-height: var(--zi-line-20);
   transition: background-color 160ms ease, color 160ms ease;
+  font-weight: var(--zi-weight-500);
 }
 
 .disease-library__links .disease-pill { gap: 0; }
@@ -219,7 +220,7 @@
   align-self: start;
   font-size: var(--zi-font-size-14);
   line-height: var(--zi-line-20);
-  font-weight: var(--zi-weight-500);
+  font-weight: var(--zi-weight-600);
 
 }
 

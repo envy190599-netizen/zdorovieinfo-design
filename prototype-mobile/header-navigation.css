@@ -203,8 +203,7 @@ body.fullscreen-home .header[data-site-component="header"]::before {
     border-radius: 0;
     box-shadow: none;
   }
-  .header.is-menu-open > :not(.logo):not(.header-actions):not(.search-input),
-  .header.is-menu-open .mobile-search-button { visibility: hidden; }
+  .header.is-menu-open > :not(.logo):not(.header-actions):not(.search-input) { visibility: hidden; }
   body:is(.wow-page, .wow-route-context) .header.is-menu-open .header-actions {
     position: absolute;
     top: 10px;
@@ -350,6 +349,8 @@ body:is(.wow-page, .wow-route-context) .header.header--wow > .special-button {
 .search-input__close { display: none; }
 @media (max-width: 1279px) {
   body .header .search-input.search-input--always-open { display: none; }
+  body .header .search-input label > .search-input__icon,
+  body .header .search-input__submit { display: none; }
   body .header .header-actions { display: flex; margin-left: auto; gap: var(--zi-space-8); }
   body .header .header-actions > .icon-button { width: 44px; height: 44px; flex: 0 0 44px; }
   body .header .mobile-search-button { display: grid; }
@@ -366,14 +367,14 @@ body:is(.wow-page, .wow-route-context) .header.header--wow > .special-button {
   }
   body .header.is-search-open .search-input.search-input--always-open label > .search-input__icon { display: none; }
   body .header.is-search-open .search-input.search-input--always-open input { font-size: var(--zi-font-size-16); height: 44px; padding: 0; }
-  body .header.is-search-open .search-input__submit,
+  body .header.is-search-open .mobile-search-button,
   body .header.is-search-open .search-input__close {
     position: static; width: 44px; height: 44px; margin: 0; padding: 0; flex: 0 0 44px;
     display: grid; place-items: center; overflow: visible; clip: auto; clip-path: none;
     border: 0; border-radius: var(--zi-radius-pill); background: transparent; color: var(--ink); cursor: pointer;
   }
-  body .header.is-search-open .search-input__submit { order: -1; }
-  body .header.is-search-open .search-input__submit .search-input__icon { width: 24px; height: 24px; }
+  body .header.is-search-open .mobile-search-button { order: -1; }
+  body .header.is-search-open .mobile-search-button .search-input__icon { width: 24px; height: 24px; }
   body .header.is-search-open .search-input__close span { font: var(--zi-type-symbol); }
   body .header .mobile-search-button:focus-visible,
   body .header .search-input__submit:focus-visible,
@@ -690,64 +691,10 @@ body.is-sidebar-navigation .navigation-item:hover:where(html[data-hover-enabled]
   }
   body:is(.wow-page, .wow-route-context) .header.is-menu-open .header-actions {
     position: static;
-    width: 44px;
-    flex: 0 0 44px;
-    margin: 0;
-  }
-  body .header.is-menu-open .header-actions .mobile-search-button { display: none; }
-  body:is(.wow-page, .wow-route-context) .header.is-menu-open .search-input.search-input--always-open {
-    position: static;
-    display: flex;
-    visibility: visible;
-    align-items: center;
-    flex: 1 1 0;
     width: auto;
-    min-width: 0;
-    height: 44px;
-    margin: 0;
-    padding: 0;
-    gap: 4px;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
+    flex: 0 0 auto;
+    margin: 0 0 0 auto;
   }
-  body:is(.wow-page, .wow-route-context) .header.header--wow.is-menu-open .search-input.search-input--always-open > label,
-  body:is(.wow-page, .wow-route-context) .header.header--wow.is-menu-open .search-input.search-input--always-open > label:has(input:focus) {
-    flex: 1 1 0;
-    min-width: 0;
-    height: 44px;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-  }
-  body .header.is-menu-open .search-input label > .search-input__icon { display: none; }
-  body .header.is-menu-open .search-input input {
-    width: 100%;
-    min-width: 0;
-    height: 44px;
-    padding: 0;
-    font-size: var(--zi-font-size-16);
-  }
-  body .header.is-menu-open .search-input__submit {
-    position: static;
-    display: grid;
-    place-items: center;
-    order: -1;
-    width: 44px;
-    height: 44px;
-    flex: 0 0 44px;
-    margin: 0;
-    padding: 0;
-    overflow: visible;
-    clip: auto;
-    clip-path: none;
-    border: 0;
-    background: transparent;
-  }
-  body .header.is-menu-open .search-input__submit .search-input__icon { width: 24px; height: 24px; }
-  body .header.is-menu-open .search-input__close { display: none; }
   body .burger-menu .social-links--menu {
     display: flex;
     flex-wrap: nowrap;
