@@ -295,3 +295,8 @@ body.wow-page.editorial-home.fullscreen-home .hero-slide > :is(img, video) {
 @media (max-width: 1279px) {
   body.wow-page.editorial-home.fullscreen-home { --hero-body-font-size: var(--zi-font-size-14); }
 }
+
+@media (max-width: 767px) {
+  body.wow-page.editorial-home.fullscreen-home { --hero-body-font-size: var(--zi-font-size-16); }
+  body.wow-page.fullscreen-home .slide-copy p { line-height: var(--zi-line-24); }
+}
