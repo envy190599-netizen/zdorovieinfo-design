@@ -37,7 +37,7 @@ button.week-digest__more .week-digest__arrow { transform: rotate(90deg); }
 }
 
 .related-materials { min-width: 0; padding: var(--zi-inset-panel); background: var(--panel); border-radius: var(--zi-radius-panel); }
-.related-materials > h2 { margin: 0 0 var(--zi-gap-section); color: var(--ink); font: var(--zi-type-article-title); }
+.related-materials > h2 { margin: 0 0 var(--zi-gap-section); color: var(--ink); font: var(--zi-type-panel-heading); }
 .related-materials__viewport { position: relative; }
 .related-materials__rail {
   display: flex; gap: var(--zi-gap-grid); padding: 3px 0;
