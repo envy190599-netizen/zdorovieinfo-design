@@ -389,20 +389,19 @@ body .desktop-ad-rail__stage {
   outline: none;
 }
 
-.menu-icon { display: block; width: 24px; height: 24px; margin: auto; overflow: visible; }
-.menu-icon line {
-  stroke: var(--blue);
-  stroke-width: 2.4;
-  stroke-linecap: round;
-  vector-effect: non-scaling-stroke;
-  transform-origin: 12px 12px;
+.menu-icon { position: relative; display: block; width: 24px; height: 24px; margin: auto; }
+.menu-icon__burger,
+.menu-icon > .close-icon {
+  position: absolute;
+  inset: 0;
+  width: 24px;
+  height: 24px;
+  margin: 0;
   transition: transform 220ms ease, opacity 180ms ease;
 }
-.menu-icon line:nth-child(1) { transform: translateY(-9px); }
-.menu-icon line:nth-child(3) { transform: translateY(9px); }
-.menu-toggle.is-open .menu-icon line:nth-child(1) { transform: rotate(45deg) scaleX(1.4142135624); }
-.menu-toggle.is-open .menu-icon line:nth-child(2) { opacity: 0; }
-.menu-toggle.is-open .menu-icon line:nth-child(3) { transform: rotate(-45deg) scaleX(1.4142135624); }
+.menu-icon > .close-icon { opacity: 0; transform: rotate(-45deg); }
+.menu-toggle.is-open .menu-icon__burger { opacity: 0; transform: rotate(45deg); }
+.menu-toggle.is-open .menu-icon > .close-icon { opacity: 1; transform: rotate(0); }
 .close-icon {
   display: block;
   flex: 0 0 24px;
@@ -410,11 +409,11 @@ body .desktop-ad-rail__stage {
   height: 24px;
   margin: auto;
   background: var(--blue);
-  -webkit-mask: url("./assets/figma/close.svg") center / contain no-repeat;
-  mask: url("./assets/figma/close.svg") center / contain no-repeat;
+  -webkit-mask: url("./assets/icons/close.svg") center / contain no-repeat;
+  mask: url("./assets/icons/close.svg") center / contain no-repeat;
 }
 @media (prefers-reduced-motion: reduce) {
-  .menu-icon line { transition: none; }
+  .menu-icon__burger, .menu-icon > .close-icon { transition: none; }
 }
 
 .menu-toggle:focus-visible {

@@ -13,3 +13,5 @@
 Имена компонентов иконок в Figma совпадают с именами соответствующих файлов без расширения. SVG сохранять векторными; в Figma использовать связанные экземпляры. 3D-иконки — растровые иллюстрации с прозрачностью, векторных оригиналов у них нет. Фотографии передаются в доступном рабочем формате; для части обложек это WebP.
 
 Авторство и оригиналы: [стоковые изображения](../design-assets/stock/ATTRIBUTION.md), [обложки инфографик](../design-assets/stock/infographic-covers/sources.json), [социальные иконки](sources/SOCIAL_ICONS.md), [рекламные материалы](sources/AD_MEDIA.md). Соседние с ресурсами `SOURCE.md` и `sources.json` содержат сведения об их происхождении. Источник обложки и источник самой инфографики указаны отдельно.
+
+Иконки шапки: [menu](https://www.figma.com/design/vMQvJr6wdwZi8tHPxZBa4q/ZI-DEV?node-id=74-21392) и [close](https://www.figma.com/design/vMQvJr6wdwZi8tHPxZBa4q/ZI-DEV?node-id=74-21396) — оригиналы в prototype-mobile/assets/icons/.

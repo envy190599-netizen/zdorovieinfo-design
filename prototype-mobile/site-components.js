@@ -212,7 +212,7 @@
         ` : ""}
         <div class="header-actions">
           <button class="icon-button mobile-search-button" type="button" aria-label="Открыть поиск" aria-expanded="false" aria-controls="site-search-${instanceId}"><img class="search-input__icon" src="./assets/figma/search-desktop.svg" alt="" /></button>
-          <button class="icon-button menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu-panel-${instanceId}"><svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="12" x2="21" y2="12"/></svg></button>
+          <button class="icon-button menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu-panel-${instanceId}"><span class="menu-icon" aria-hidden="true"><img class="menu-icon__burger" src="./assets/icons/menu.svg" alt="" /><span class="close-icon"></span></span></button>
         </div>
       </header>
       ${wow ? specialProjectsMarkup() : ""}
