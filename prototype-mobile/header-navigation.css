@@ -424,6 +424,7 @@ body:is(.wow-page, .wow-route-context) .header.header--wow > .special-button {
   .special-projects__heading { padding: 8px 15px; }
   .special-projects__heading h2 { font-size: var(--zi-font-size-20); }
   .special-projects__list { grid-template-columns: 1fr; padding: 15px; }
+  .special-projects__column > a { border: 0; }
 }
 
 /* Specials replaces the site header with its own catalog chrome. */
@@ -431,7 +432,7 @@ body:is(.wow-page, .wow-route-context) .header.header--wow > .special-button {
 #special-projects { top: 0; right: 0; left: 0; z-index: 200; max-height: calc(100dvh - 24px); background: #fff; transform: none; clip-path: none; transition: opacity 180ms ease, visibility 0s linear 180ms; }
 .special-projects__heading { display: grid; grid-template-columns: minmax(0, 1fr) 44px; gap: 20px; min-height: 76px; padding: 12px 24px; }
 @media (max-width: 1279px) {
-  .special-projects__heading { grid-template-columns: minmax(0, 1fr) 44px; gap: 12px; min-height: 0; padding: 12px 15px; }
+  .special-projects__heading { align-self: stretch; grid-template-columns: minmax(0, 1fr) 44px; gap: 12px; min-height: 0; padding: 12px 15px; }
   .special-projects__close { grid-row: 1; grid-column: 2; }
 }
 
