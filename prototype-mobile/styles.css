@@ -399,6 +399,13 @@ body .desktop-ad-rail__stage {
   margin: 0;
   transition: transform 220ms ease, opacity 180ms ease;
 }
+.menu-icon__burger, .search-icon {
+  background: var(--zi-color-background-brand-default);
+  -webkit-mask: var(--header-icon-source) center / contain no-repeat;
+  mask: var(--header-icon-source) center / contain no-repeat;
+}
+.menu-icon__burger { --header-icon-source: url("./assets/icons/menu.svg?v=zi2-original"); }
+.search-icon { --header-icon-source: url("./assets/icons/search.svg?v=zi2-original"); }
 .menu-icon > .close-icon { opacity: 0; transform: rotate(-45deg); }
 .menu-toggle.is-open .menu-icon__burger { opacity: 0; transform: rotate(45deg); }
 .menu-toggle.is-open .menu-icon > .close-icon { opacity: 1; transform: rotate(0); }
@@ -409,8 +416,8 @@ body .desktop-ad-rail__stage {
   height: 24px;
   margin: auto;
   background: var(--blue);
-  -webkit-mask: url("./assets/icons/close.svg") center / contain no-repeat;
-  mask: url("./assets/icons/close.svg") center / contain no-repeat;
+  -webkit-mask: url("./assets/icons/close.svg?v=zi2-original") center / contain no-repeat;
+  mask: url("./assets/icons/close.svg?v=zi2-original") center / contain no-repeat;
 }
 @media (prefers-reduced-motion: reduce) {
   .menu-icon__burger, .menu-icon > .close-icon { transition: none; }

@@ -197,7 +197,7 @@
         ${logoMarkup(routes.home)}
         <form id="site-search-${instanceId}" class="search-input search-input--always-open" action="${routes.articles}" method="get" role="search">
           <label>
-            <img class="search-input__icon" src="./assets/figma/search-desktop.svg" alt="" />
+            <span class="search-input__icon search-icon" aria-hidden="true"></span>
             <input name="q" type="search" enterkeyhint="search" placeholder="Найти на Здоровье Инфо" aria-label="Найти на Здоровье Инфо" />
           </label>
           <button class="sr-only search-input__submit" type="submit">Найти</button>
@@ -211,8 +211,8 @@
           </button>
         ` : ""}
         <div class="header-actions">
-          <button class="icon-button mobile-search-button" type="button" aria-label="Открыть поиск" aria-expanded="false" aria-controls="site-search-${instanceId}"><img class="search-input__icon" src="./assets/figma/search-desktop.svg" alt="" /></button>
-          <button class="icon-button menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu-panel-${instanceId}"><span class="menu-icon" aria-hidden="true"><img class="menu-icon__burger" src="./assets/icons/menu.svg" alt="" /><span class="close-icon"></span></span></button>
+          <button class="icon-button mobile-search-button" type="button" aria-label="Открыть поиск" aria-expanded="false" aria-controls="site-search-${instanceId}"><span class="search-input__icon search-icon" aria-hidden="true"></span></button>
+          <button class="icon-button menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu-panel-${instanceId}"><span class="menu-icon" aria-hidden="true"><span class="menu-icon__burger"></span><span class="close-icon"></span></span></button>
         </div>
       </header>
       ${wow ? specialProjectsMarkup() : ""}

@@ -14,4 +14,4 @@
 
 Авторство и оригиналы: [стоковые изображения](../design-assets/stock/ATTRIBUTION.md), [обложки инфографик](../design-assets/stock/infographic-covers/sources.json), [социальные иконки](sources/SOCIAL_ICONS.md), [рекламные материалы](sources/AD_MEDIA.md). Соседние с ресурсами `SOURCE.md` и `sources.json` содержат сведения об их происхождении. Источник обложки и источник самой инфографики указаны отдельно.
 
-Иконки шапки: [menu](https://www.figma.com/design/vMQvJr6wdwZi8tHPxZBa4q/ZI-DEV?node-id=74-21392) и [close](https://www.figma.com/design/vMQvJr6wdwZi8tHPxZBa4q/ZI-DEV?node-id=74-21396) — оригиналы в prototype-mobile/assets/icons/.
+Иконки шапки из исходного ZI-2.0, Icons / 24: [Menu](https://www.figma.com/design/7oW76tGV51F5g4XOMvQFHd/ZI-2.0?node-id=4039-12035), [X](https://www.figma.com/design/7oW76tGV51F5g4XOMvQFHd/ZI-2.0?node-id=4039-12622), [Search](https://www.figma.com/design/7oW76tGV51F5g4XOMvQFHd/ZI-2.0?node-id=4039-12553). Точные SVG-экспорты — prototype-mobile/assets/icons/{menu,close,search}.svg. Цвет на сайте задаётся маской из общего токена #137DB8.
